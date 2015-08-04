@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_from: 2015-07-19 07:34:02
+  date_to: 2015-07-19 07:34:02
+  descript: MyText
+  filename: MyString
+  ticker: false
+  admin_event_type_id: 
+
+two:
+  date_from: 2015-07-19 07:34:02
+  date_to: 2015-07-19 07:34:02
+  descript: MyText
+  filename: MyString
+  ticker: false
+  admin_event_type_id: 

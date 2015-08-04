@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Brahma Kumaris Singapore Official Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'shiv1.png' %>
+</head>
+<body>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="page-header bk-header-sg">
+  <%= image_tag("header/banner-1.jpg", alt: "Brahmakumaris Singapore Header") %>				
+			</div>
+			<ul class="nav nav-pills navbar-inverse">
+				<li class="<%= menu_active('event_types') %>">
+					<a href="/admin/event_types">Event Types</a>
+				</li>
+				<li class="<%= menu_active('events') %>">
+					<a href="/admin/events">Manage Events</a>
+				</li>
+<!--
+				<li class="dropdown <%= menu_active('about_us') %>">
+					
+					<a href="/admin/about_us/index" data-toggle="dropdown" class="dropdown-toggle">About Us<strong class="caret"></strong></a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="/admin/about_us/history">History</a>
+						</li>
+						<li>
+							<a href="/admin/about_us/founder">Founder</a>
+						</li>
+						<li>
+							<a href="/admin/about_us/leaders">Spiritual Leaders</a>
+						</li>
+						<li>
+							<a href="/admin/about_us/experiences">Rajayoga Meditation</a>
+						</li>						
+					</ul>					
+				</li>
+				<li class="dropdown <%= menu_active('contact_us') %>">					
+					<a href="#" data-toggle="dropdown" class="dropdown-toggle">Contact Us<strong class="caret"></strong></a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="/admin/contact_us/local">Local Contact</a>
+						</li>
+						<li>
+							<a href="/admin/contact_us/head_quaters">Head Quaters</a>
+						</li>
+						<li>
+							<a href="/admin/contact_us/internation">International Links</a>
+						</li>
+					</ul>						
+				</li>
+-->
+				<li class="<%= menu_active('articles') %>">
+					<a href="/admin/articles">News & Media</a>
+				</li>
+				<li class="<%= menu_active('experiences') %>">
+					<a href="/admin/experiences">Experiences & Sharing</a>
+				</li>
+<!--
+				<li>
+					<a href="#">Gallery</a>
+				</li>
+-->
+			</ul>			
+			<div class="row clearfix content-top">
+				<div class="col-md-12 column">
+				  <%= yield %>								
+				</div>
+				
+			</div>
+			<div class="page-footer">
+				<div class="copyright">
+					© Copyright 2015 Brahma Kumaris World Spiritual Organization
+				</div>
+				<div class="footer-links">
+				   <a href="http://www.bkwsu.org/singapore"> Link To Us</a> &nbsp; | &nbsp;
+				   <a href="sitemap.html">Site Map</a> &nbsp; | &nbsp;
+				   <a href="faq.html"> FAQ </a> &nbsp; | &nbsp;
+				   <a href="feedback.html">Feedback</a> &nbsp; | &nbsp;
+				   <a href="#">Facebook</a> &nbsp; | &nbsp;
+				   <a href="#">Youtube</a> &nbsp; | &nbsp;
+				   <a href="#">Twitter</a> &nbsp; | &nbsp;
+				   <a href="#">RSS</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<div class="well history-content">
+<%= link_to 'Back', admin_articles_path %>
+<p id="notice"><%= notice %></p>
+<div class="form-group">
+<h2 class="well-h2">
+  <%= @article.title %>
+</h2>
+</div>
+
+<div class="form-group clearfix">
+  <strong>Content:</strong>
+  <%= @article.content.html_safe %>
+</div>
+
+<div class="form-group">
+  <strong>Is Published?:</strong>
+  <%= @article.published %>
+</div>
+
+<div class="form-group">
+  <strong>Published at:</strong>
+  <%= @article.published_at.strftime("%m/%d/%Y %I:%M %p") %>
+</div>
+
+<div class="clearfix">
+<h3>View Comments (<%= @article.comments.count %>)</h3>
+<%= render @article.comments %> 
+</div>
+</div>

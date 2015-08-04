@@ -1,0 +1,19 @@
+<div class="well">
+<p>
+  <strong>Name:</strong>
+  <%= comment.commenter %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%= comment.email %>
+</p> 
+<p>
+  <strong>Comment:</strong>
+  <%= comment.body %>
+</p>
+<p>
+  <%= link_to 'Destroy Comment', [comment.source, comment],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>
+</div>

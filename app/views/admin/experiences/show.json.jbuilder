@@ -1,0 +1,1 @@
+json.extract! @experience, :title, :content, :published, :published_at, :created_at, :updated_at

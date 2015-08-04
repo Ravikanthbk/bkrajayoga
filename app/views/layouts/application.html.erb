@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Brahma Kumaris Singapore Official Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'shiv1.png' %>
+</head>
+<body>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="page-header bk-header-sg">
+
+			  <%= image_tag("header/banner-1.jpg", alt: "Brahmakumaris Singapore Header") %>
+			</div>
+			<ul class="nav nav-pills navbar-inverse">
+				<li class="<%= menu_active('home') %>">
+				  <%= link_to "Home", home_index_path %>	
+				</li>
+				<li class="dropdown <%= menu_active('about_us') %>">
+					
+					<a href="/about_us/index" data-toggle="dropdown" class="dropdown-toggle">About Us<strong class="caret"></strong></a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="/about_us/history">History</a>
+						</li>
+						<li>
+							<a href="/about_us/founder">Founder</a>
+						</li>
+						<li>
+							<a href="/about_us/leaders">Spiritual Leaders</a>
+						</li>
+						<li>
+							<a href="/about_us/experiences">Rajayoga Meditation</a>
+						</li>						
+					</ul>					
+				</li>
+				<li class="dropdown <%= menu_active('events') %>">
+					
+					<a href="#" data-toggle="dropdown" class="dropdown-toggle">Events<strong class="caret"></strong></a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="/events/courses">Courses</a>
+						</li>
+						<li>
+							<a href="/events/local_activities">Local Activities</a>
+						</li>
+						<li>
+							<a href="/events/lectures">Lectures, Seminars &amp; Workshops</a>
+						</li>
+					</ul>						
+				</li>
+
+				<li class="<%= menu_active('articles') %>">
+					<a href="/articles">News & Media</a>
+				</li>
+				<li class="<%= menu_active('experiences') %>">
+					<a href="/experiences">Experiences & Sharing</a>
+				</li>
+				<li class="dropdown <%= menu_active('contact_us') %>">					
+					<a href="#" data-toggle="dropdown" class="dropdown-toggle">Contact Us<strong class="caret"></strong></a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="/contact_us/local">Local Contact</a>
+						</li>
+						<li>
+							<a href="/contact_us/head_quaters">Head Quaters</a>
+						</li>
+						<li>
+							<a href="/contact_us/internation">International Links</a>
+						</li>
+					</ul>						
+				</li>				
+			</ul>
+
+			<div class="row clearfix content-top">
+				<div class="col-md-8 column">
+				  <%= yield %>								
+				</div>
+				<div class="col-md-4 column">
+					<div class="list-group">
+						<a href="http://www.bkrajayoga.com/demo/email_customer.php" target="_blank" class="list-group-item sg-side-bar">Join our mailing list</a>
+						<a href="http://www.brahmakumaris.org/uk/thoughts" target="_blank" class="list-group-item sg-side-bar">Thought of the day</a>
+						<a href="/about_us/meditation" class="list-group-item sg-side-bar">Meditation</a>
+						<a href="http://www.the-yoga-shop.com" target="_blank" class="list-group-item sg-side-bar">Yoga Shop</a>
+						<a href="#" class="list-group-item sg-side-bar">Newsletter</a>
+					</div>
+					
+					<div class="list-group">
+						<a class="list-group-item active">Courses</a>
+						<div class="list-group-item">
+						<p><strong> HINDI</strong></p> 
+						<p><strong>Start Date :</strong> 07-02-2015 - <strong>End Date :</strong> 11-04-2015</p>  
+						<p><strong>Start Time :</strong> 09:00:00 - <strong>End Time :</strong> 11:00:00</p>
+						</div>
+						<div class="list-group-item well-list">
+						<p><strong> MANDARIN</strong></p> 
+						<p><strong>Start Date :</strong> 01-02-2015 - <strong>End Date :</strong> 22-02-2015</p>  
+						<p><strong>Start Time :</strong> 09:30:00 - <strong>End Time :</strong> 11:00:00</p>
+						</div>
+						<div class="list-group-item">
+						<p><strong>RAJAYOGA MEDITATION COURSE � WEEKDAY EVENING BATCH (IN ENGLISH) - FEBRUARY BATCH</strong></p> 
+						<p><strong>Start Date :</strong> 07-02-2015 - <strong>End Date :</strong> 11-04-2015</p>  
+						<p><strong>Start Time :</strong> 09:00:00 - <strong>End Time :</strong> 11:00:00</p>
+						</div>
+						<div class="list-group-item well-list">
+						<p><strong> RAJAYOGA FREE MEDITATION COURSES IN TAMIL - FEBRUARY BATCH</strong></p> 
+						<p><strong>Start Date :</strong> 07-02-2015 - <strong>End Date :</strong> 11-04-2015</p>  
+						<p><strong>Start Time :</strong> 09:00:00 - <strong>End Time :</strong> 11:00:00</p>
+						</div>
+					</div>					
+
+					<div class="list-group">
+						<a class="list-group-item active">Events</a>
+						<div class="list-group-item">
+						<p><strong>SOUL SPA - A JOURNEY OF RELAXATION AND REFLECTION</strong></p> 
+						<p><strong>Start Date :</strong> 07-02-2015 - <strong>End Date :</strong> 11-04-2015</p>  
+						<p><strong>Start Time :</strong> 09:00:00 - <strong>End Time :</strong> 11:00:00</p>
+						</div>
+					</div>
+
+					<div class="list-group">
+						<a class="list-group-item active">Lectures</a>
+						<div class="list-group-item">
+						<p><strong>TALK ON 'PRACTICAL GUIDELINES TO OPEN-EYED MEDITATION'</strong></p> 
+						<p><strong>Start Date :</strong> 07-02-2015 - <strong>End Date :</strong> 11-04-2015</p>  
+						<p><strong>Start Time :</strong> 09:00:00 - <strong>End Time :</strong> 11:00:00</p>
+						</div>
+					</div>
+					<div class="list-group">
+						<a class="list-group-item active">Workshops</a>
+						<div class="list-group-item">
+						<p><strong>WORKSHOP ON 'BEING MYSELF'</strong></p> 
+						<p><strong>Start Date :</strong> 07-02-2015 - <strong>End Date :</strong> 11-04-2015</p>  
+						<p><strong>Start Time :</strong> 09:00:00 - <strong>End Time :</strong> 11:00:00</p>
+						</div>
+					</div>					
+				
+				</div>
+			</div>
+			<div class="page-footer">
+				<div class="copyright">
+					© Copyright 2015 Brahma Kumaris World Spiritual Organization
+				</div>
+				<div class="footer-links">
+				   <a href="http://www.bkwsu.org/singapore"> Link To Us</a> &nbsp; | &nbsp;
+				   <a href="sitemap.html">Site Map</a> &nbsp; | &nbsp;
+				   <a href="faq.html"> FAQ </a> &nbsp; | &nbsp;
+				   <a href="feedback.html">Feedback</a> &nbsp; | &nbsp;
+				   <a href="#">Facebook</a> &nbsp; | &nbsp;
+				   <a href="#">Youtube</a> &nbsp; | &nbsp;
+				   <a href="#">Twitter</a> &nbsp; | &nbsp;
+				   <a href="#">RSS</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<div class="well history-content">
+<%= link_to 'Add New Experience (+)', new_admin_experience_path %>
+<% unless @experiences.blank? %>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Published</th>
+      <th>Published at</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @experiences.each do |experience| %>
+      <tr>
+        <td><%= experience.title %></td>
+        <td><%= experience.published %></td>
+        <td><%= experience.published_at.strftime("%m/%d/%Y %I:%M %p") %></td>
+        <td><%= link_to 'Show', [:admin, experience] %></td>
+        <td><%= link_to 'Edit', edit_admin_experience_path(experience) %></td>
+        <td><%= link_to 'Destroy', [:admin, experience], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>
+<% end %>

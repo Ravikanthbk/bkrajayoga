@@ -1,0 +1,39 @@
+<div class="well history-content">
+<p id="notice"><%= notice %></p>
+
+<h1>Manage Events</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Date from</th>
+      <th>Date to</th>
+      <th>Descript</th>
+      <th>Filename</th>
+      <th>Ticker</th>
+      <th>Admin event type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_events.each do |admin_event| %>
+      <tr>
+        <td><%= admin_event.date_from.strftime("%m/%d/%Y %I:%M %p") %></td>
+        <td><%= admin_event.date_to.strftime("%m/%d/%Y %I:%M %p") %></td>
+        <td><%= admin_event.descript %></td>
+        <td><%= admin_event.filename %></td>
+        <td><%= admin_event.ticker %></td>
+        <td><%#= admin_event.admin_event_type %></td>
+        <td><%= link_to 'Show', admin_event %></td>
+        <td><%= link_to 'Edit', edit_admin_event_path(admin_event) %></td>
+        <td><%= link_to 'Destroy', admin_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Event', new_admin_event_path %>
+</div>

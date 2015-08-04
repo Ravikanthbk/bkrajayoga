@@ -1,0 +1,16 @@
+<div class="well history-content">
+  <% @experiences.each do |experience| %>
+    <% if experience.published %>
+      <h3 class="well-h3"><%= link_to experience.title, experience, :class => "list-h3"%></h3>
+      <div class="clearfix">
+        <p>
+ 	  <%#= experience.content.html_safe %> 
+        </p>
+	<p>
+	  <%= link_to "Comments (#{experience.comments.count})", experience %> 
+        </p>
+      </div>
+      <hr>
+    <% end %>
+  <% end %>
+</div>

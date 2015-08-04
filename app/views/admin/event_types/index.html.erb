@@ -1,0 +1,29 @@
+<div class="well history-content">
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Event Types</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="width:65%">Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_event_types.each do |admin_event_type| %>
+      <tr>
+        <td><%= admin_event_type.name %></td>
+        <td><%= link_to 'Show', admin_event_type %></td>
+        <td><%= link_to 'Edit', edit_admin_event_type_path(admin_event_type) %></td>
+        <td><%= link_to 'Destroy', admin_event_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add New Event type (+)', new_admin_event_type_path %>
+</div>

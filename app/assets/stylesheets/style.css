@@ -1,0 +1,81 @@
+html {
+background-color: #e7e7e7;
+/* background-image: url(../img/largebaba.jpg); */
+/* background-image: url(../img/back5.png); */
+/* background-image: url(../img/blur-background09.jpg); */
+background-image: url(background/solar.jpg);
+/* background-image: url(../img/sandpaper.png); */
+/* background-image: url(../img/download.jpg); */
+}
+body {
+  background-color: transparent;
+  /* width: 90%;
+  margin: 0 auto; */
+}
+.container {
+ background-color: #fff;
+}
+.bk-header-sg { margin: 0; padding-bottom: 0; }
+.bk-header-sg img {
+  /* background-image: url(../img/header.jpg); */
+display: block;
+height: auto;
+max-width: 100%;
+line-height: 1;  
+width: 1140px;
+}
+
+.carousel-inner>.item > img { width: 1140px; }
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+color: #fff;
+background-color: #428bca;
+}
+.navbar-inverse {
+background-color: #222;
+border-color: #080808;
+}
+.navbar-inverse a { color: #fff; }
+.navbar-inverse a:hover, .navbar-inverse a:focus { color: #2a6496; }
+
+.content-top { margin-top: 10px; }
+a.sg-side-bar { color: #2C8AAD; }
+.history-content img { float: left; margin: 0 10px;}
+
+.well-list { background-color: #f5f5f5; }
+.well-h2 {
+margin-top: 0;
+text-align: center;
+color: #C06;
+}
+.page-footer {
+padding: 10px;
+margin: 10px 0;
+border-bottom: 1px solid #eee;
+background-color: #808000;
+color: #fff;
+/* background: url(../img/footerBgLeft.gif) no-repeat left center;
+color: #fff; */
+}
+.copyright { display: inline-block; }
+.footer-links a { color: #fff; }
+@media (min-width: 992px){
+ .footer-links { float: right; }
+}
+
+.comments-header  { text-decoration: underline }
+.list-h3 { color: #C06 }
+hr {
+  -moz-border-bottom-colors: none;
+  -moz-border-image: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  border-color: #EEEEEE -moz-use-text-color #FFFFFF;
+  border-style: solid none;
+  border-width: 1px 0;
+  margin: 18px 0;
+}
+.carousel-inner > .item > img {
+    height: 380px;
+}

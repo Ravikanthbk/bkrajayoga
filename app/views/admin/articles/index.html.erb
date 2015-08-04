@@ -1,0 +1,28 @@
+<div class="well history-content">
+<%= link_to 'Add News & Media (+)', new_admin_article_path %>
+<% unless @articles.blank? %>
+	<table class="table table-bordered">
+	  <thead>
+	    <tr>
+	      <th>Title</th>
+	      <th>Published</th>
+	      <th>Published at</th>
+	      <th colspan=3></th>
+	    </tr>
+	  </thead>
+
+	  <tbody>
+	    <% @articles.each do |article| %>
+	      <tr>
+		<td><%= truncate article.title, :length => 50 %></td>
+		<td><%= article.published %></td>
+		<td><%= article.published_at.strftime("%m/%d/%Y %I:%M %p") %></td>
+		<td><%= link_to 'Show', [:admin, article] %></td>
+		<td><%= link_to 'Edit', edit_admin_article_path(article) %></td>
+		<td><%= link_to 'Destroy', [:admin, article], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+<% end %>
+</div>
