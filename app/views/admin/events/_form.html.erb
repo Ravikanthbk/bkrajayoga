@@ -11,31 +11,34 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :date_from %><br>
-    <%= f.datetime_select :date_from %>
+  <div class="form-group">
+    <%= f.label :date_from %>:
+    <%#= f.datetime_select :date_from, :class => "form-control" %>
+    <%= f.calendar_date_select "date_from", :time => true , :readonly=>true, :popup=>"force"  %>
   </div>
-  <div class="field">
-    <%= f.label :date_to %><br>
-    <%= f.datetime_select :date_to %>
+  <div class="form-group">
+    <%= f.label :date_to %>:
+    <%#= f.datetime_select :date_to, :class => "form-control" %>
+    <%= f.calendar_date_select "date_to", :time => true , :readonly=>true, :popup=>"force"  %>
   </div>
-  <div class="field">
-    <%= f.label :descript %><br>
-    <%= f.text_area :descript %>
+  <div class="form-group">
+    <p><%= f.label :description %></p>
+    <%= f.cktext_area :descript %>
   </div>
-  <div class="field">
-    <%= f.label :filename %><br>
-    <%= f.text_field :filename %>
+  <div class="form-group">
+    <%#= f.label :filename %>
+    <%#= f.text_field :filename %>
   </div>
-  <div class="field">
-    <%= f.label :ticker %><br>
+  <div class="form-group">
+    <%= f.label :ticker %>: 
     <%= f.check_box :ticker %>
   </div>
-  <div class="field">
-    <%= f.label :admin_event_type_id %><br>
-    <%= f.text_field :admin_event_type_id %>
+  <div class="form-group">
+    <%= f.label :admin_event_type_id %>:
+    <%= f.collection_select :admin_event_type, Admin::EventType.all, :id, :name, {prompt: "Select an event"} %>
+    <%#= f.text_field :admin_event_type_id, :class => "form-control" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.submit :class => "btn btn-primary" %>
   </div>
 <% end %>
