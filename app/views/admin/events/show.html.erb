@@ -2,35 +2,43 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Date from:</strong>
-  <%= @admin_event.date_from %>
+  <strong>Name:</strong>
+  <%= @admin_event.name %>
 </p>
-
 <p>
-  <strong>Date to:</strong>
-  <%= @admin_event.date_to %>
+  <strong>Event type:</strong>
+  <%= @admin_event.admin_event_type.name %>
 </p>
-
 <p>
   <strong>Descript:</strong>
-  <%= @admin_event.descript %>
+  <%= @admin_event.descript.html_safe %>
 </p>
 
+<!--
 <p>
   <strong>Filename:</strong>
-  <%= @admin_event.filename %>
+  <%#= @admin_event.filename %>
 </p>
 
 <p>
   <strong>Ticker:</strong>
   <%= @admin_event.ticker %>
 </p>
+-->
 
 <p>
-  <strong>Admin event type:</strong>
-  <%= @admin_event.admin_event_type %>
+  <strong>Date from:</strong>
+  <%= @admin_event.date_from.strftime("%m/%d/%Y %I:%M %p") %>
 </p>
 
+<p>
+  <strong>Date to:</strong>
+  <%= @admin_event.date_to.strftime("%m/%d/%Y %I:%M %p") %>
+</p>
+<p>
+  <strong>Venue:</strong>
+  <%= @admin_event.admin_venue.address %>
+</p>
 <%= link_to 'Edit', edit_admin_event_path(@admin_event) %> |
 <%= link_to 'Back', admin_events_path %>
 </div>

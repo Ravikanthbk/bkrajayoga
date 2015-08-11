@@ -1,4 +1,5 @@
-<%= form_for(@admin_event) do |f| %>
+<%#= form_for(@admin_event) do |f| %>
+<%= simple_form_for(@admin_event) do |f| %>
   <% if @admin_event.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@admin_event.errors.count, "error") %> prohibited this admin_event from being saved:</h2>
@@ -10,33 +11,45 @@
       </ul>
     </div>
   <% end %>
-
   <div class="form-group">
-    <%= f.label :date_from %>:
-    <%#= f.datetime_select :date_from, :class => "form-control" %>
-    <%= f.calendar_date_select "date_from", :time => true , :readonly=>true, :popup=>"force"  %>
+    <p><%= f.label :name %></p>
+    <%= f.text_field :name, :class => "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :date_to %>:
-    <%#= f.datetime_select :date_to, :class => "form-control" %>
-    <%= f.calendar_date_select "date_to", :time => true , :readonly=>true, :popup=>"force"  %>
+    <%= f.label :event_type %>:
+    <%= f.collection_select :admin_event_type_id, Admin::EventType.all, :id, :name, {prompt: "Select an event"} %>
   </div>
   <div class="form-group">
     <p><%= f.label :description %></p>
     <%= f.cktext_area :descript %>
   </div>
+<!--
   <div class="form-group">
     <%#= f.label :filename %>
     <%#= f.text_field :filename %>
   </div>
   <div class="form-group">
-    <%= f.label :ticker %>: 
-    <%= f.check_box :ticker %>
+    <%#= f.label :ticker %>: 
+    <%#= f.check_box :ticker %>
+  </div>
+-->
+  <div class="form-group">
+    <%#= f.label :date_from %>
+<div class='row datetimerange'>
+    <%#= f.datetime_select :date_from, :class => "form-control" %>
+    <%= f.input :date_from, as: :datetime_picker, wrapper: :ranged_datetime %>
+</div>
   </div>
   <div class="form-group">
-    <%= f.label :admin_event_type_id %>:
-    <%= f.collection_select :admin_event_type, Admin::EventType.all, :id, :name, {prompt: "Select an event"} %>
-    <%#= f.text_field :admin_event_type_id, :class => "form-control" %>
+    <%#= f.label :date_to %>
+    <%#= f.datetime_select :date_to, :class => "form-control" %>
+<div class='row datetimerange'>
+    <%= f.input :date_to, as: :datetime_picker, wrapper: :ranged_datetime %>
+</div>
+  </div>
+  <div class="form-group">
+    <%= f.label :venue %>:
+    <%= f.collection_select :admin_venue_id, Admin::Venue.all, :id, :name, {prompt: "Select venue"} %>
   </div>
   <div class="form-group">
     <%= f.submit :class => "btn btn-primary" %>

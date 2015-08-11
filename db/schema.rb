@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150722204429) do
+ActiveRecord::Schema.define(version: 20150809212638) do
 
   create_table "admin_event_types", force: :cascade do |t|
     t.string   "name"
@@ -28,9 +28,30 @@ ActiveRecord::Schema.define(version: 20150722204429) do
     t.integer  "admin_event_type_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.string   "name"
+    t.boolean  "is_registrations"
+    t.string   "speaker"
+    t.integer  "venue_id"
+    t.integer  "admin_venue_id"
   end
 
   add_index "admin_events", ["admin_event_type_id"], name: "index_admin_events_on_admin_event_type_id"
+  add_index "admin_events", ["admin_venue_id"], name: "index_admin_events_on_admin_venue_id"
+  add_index "admin_events", ["venue_id"], name: "index_admin_events_on_venue_id"
+
+  create_table "admin_venues", force: :cascade do |t|
+    t.string   "name"
+    t.text     "address"
+    t.string   "phone"
+    t.string   "fax"
+    t.string   "email"
+    t.string   "city_locality"
+    t.integer  "postcode"
+    t.string   "country"
+    t.text     "remarks"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -76,5 +97,31 @@ ActiveRecord::Schema.define(version: 20150722204429) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
+
+  create_table "user_registrations", force: :cascade do |t|
+    t.integer  "admin_event_id"
+    t.string   "name"
+    t.text     "address"
+    t.integer  "postcode"
+    t.string   "tel_mobile_no"
+    t.string   "tel_residence"
+    t.string   "email"
+    t.string   "marital_status"
+    t.string   "occupation"
+    t.string   "gender"
+    t.integer  "age"
+    t.string   "race"
+    t.string   "nationality"
+    t.string   "introduced_thru"
+    t.boolean  "meditate_before"
+    t.string   "purpose_of_attending"
+    t.integer  "no_of_places_or_people"
+    t.boolean  "is_confirmed"
+    t.text     "comments"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "user_registrations", ["admin_event_id"], name: "index_user_registrations_on_admin_event_id"
 
 end

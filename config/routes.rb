@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+#  get 'user_registrations/new'
+#  post 'user_registrations'
+  resources :user_registrations
+
+  namespace :admin do
+    resources :venues
+  end
   mount Ckeditor::Engine => '/ckeditor'
   #get 'experiences/show'
 

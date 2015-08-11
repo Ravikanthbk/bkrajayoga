@@ -72,6 +72,6 @@ class Admin::EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_event_params
-      params.require(:admin_event).permit(:date_from, :date_to, :descript, :filename, :ticker, :admin_event_type_id)
+      params.require(:admin_event).permit(:date_from, :date_to, :descript, :filename, :ticker, :name, :admin_event_type_id, :admin_venue_id)
     end
 end
