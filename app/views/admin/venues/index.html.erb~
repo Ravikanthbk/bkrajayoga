@@ -1,0 +1,42 @@
+<div class="well history-content">
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Venues</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>City locality</th>
+      <th>Postcode</th>
+      <th>Country</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_venues.each do |admin_venue| %>
+      <tr>
+        <td><%= admin_venue.name %></td>
+        <td><%= admin_venue.address %></td>
+        <td><%= admin_venue.phone %></td>
+        <td><%= admin_venue.fax %></td>
+        <td><%= admin_venue.email %></td>
+        <td><%= admin_venue.city_locality %></td>
+        <td><%= admin_venue.postcode %></td>
+        <td><%= admin_venue.country %></td>
+        <td><%= admin_venue.remarks %></td>
+        <td><%= link_to 'Show', admin_venue %></td>
+        <td><%= link_to 'Edit', edit_admin_venue_path(admin_venue) %></td>
+        <td><%= link_to 'Destroy', admin_venue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Venue', new_admin_venue_path %>
+</div>

@@ -1,0 +1,31 @@
+<div class="well history-content">
+<h2 style="color: #922582"><%= @event.name %></h2>
+  <div class="form-group">
+    <p><%= label_tag :date %>: <%= @event.date_from.strftime("%b %d, %Y - %I:%M %p") %></p>    
+  </div>
+
+<%= simple_form_for(@user_registration) do |f| %>
+<%= f.hidden_field :admin_event_id, :value => @event.id %>
+  <div class="form-group">
+    <p><%= f.label "The user name:" %>:     <%= f.text_field :name, :class => "form-control" %></p>
+  </div>
+  <div class="form-group">
+    <p><%= f.label "Email address:" %>:     <%= f.text_field :email, :class => "form-control" %></p>
+  </div>
+  <div class="form-group">
+    <p><%= f.label "Telephone number:" %>:     <%= f.text_field :tel_mobile_no, :class => "form-control" %></p>
+  </div>
+  <div class="form-group">
+    <p><%= f.label "No of places / people:" %>: 
+<%= f.select("no_of_places_or_people", [1,2,3,4,5,6,7]) %>
+   </p>
+  </div>
+  <div class="form-group">
+    <p><%= f.label "Any comments from your side:" %>:
+       <%= f.text_area :comments, :class => "form-control" %></p>
+  </div>
+  <div class="form-group">
+    <%= f.submit :class => "btn btn-primary" %>
+  </div>
+<% end %>
+</div>

@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  admin_event_id: 
+  name: MyString
+  address: MyText
+  postcode: 1
+  tel_mobile_no: MyString
+  tel_residence: MyString
+  email: MyString
+  marital_status: MyString
+  occupation: MyString
+  gender: MyString
+  age: 1
+  race: MyString
+  nationality: MyString
+  introduced_thru: MyString
+  meditate_before: false
+  purpose_of_attending: MyString
+  no_of_places_or_people: 1
+  is_confirmed: false
+  comments: MyText
+
+two:
+  admin_event_id: 
+  name: MyString
+  address: MyText
+  postcode: 1
+  tel_mobile_no: MyString
+  tel_residence: MyString
+  email: MyString
+  marital_status: MyString
+  occupation: MyString
+  gender: MyString
+  age: 1
+  race: MyString
+  nationality: MyString
+  introduced_thru: MyString
+  meditate_before: false
+  purpose_of_attending: MyString
+  no_of_places_or_people: 1
+  is_confirmed: false
+  comments: MyText
