@@ -80,3 +80,29 @@ hr {
     height: 380px;
 }
 p { text-align: justify}
+.events-title { color: #922582 }
+.event-date { color: #5CA6BF }
+.calfirst {
+    width: 86px;
+    height: 105px;
+    margin: 22px 16px 16px 16px;
+    background: url(datebg.gif) no-repeat;
+    float: right;
+}
+.number {
+    font-size: 3em;
+    color: #3392B2;
+    display: block;
+    margin: 30px 4px 0 0;
+    text-align: center;
+}
+.month {
+    font-size: 1.7em;
+    color: #999;
+    display: block;
+    text-transform: uppercase;
+    margin: 15px 6px 0 0;
+    text-align: center;
+}
+
+

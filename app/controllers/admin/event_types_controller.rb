@@ -1,5 +1,5 @@
 class Admin::EventTypesController < ApplicationController
-  http_basic_authenticate_with name: "admin", password: "admin"
+  http_basic_authenticate_with name: ENV['admin_username'], password: ENV['admin_password']
   layout "admin"
   
   before_action :set_admin_event_type, only: [:show, :edit, :update, :destroy]

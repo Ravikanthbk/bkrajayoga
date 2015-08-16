@@ -1,9 +1,8 @@
 class UserMailer < ApplicationMailer
- default from: 'notifications@example.com'
+ default from: 'rajayoga@singnet.com.sg'
  
   def welcome_email(user)
     @user = user
-    @url  = 'http://example.com/login'
-    mail(to: @user.email, subject: 'Welcome to My Awesome Site')
+    mail(to: @user.email, subject: "Receipt: #{@user.admin_event.name} on #{@user.admin_event.date_from.strftime("%b %d, %Y at %I:%M%p")}")
   end
 end

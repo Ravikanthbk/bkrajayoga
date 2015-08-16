@@ -4,14 +4,39 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Welcome to example.com, <%#= @user.name %></h1>
+    <p>Dear <%= @user.name %></p>
+    <p>You have registered for the course</p>
+    <br/>
     <p>
-      You have successfully signed up to example.com,
-      your username is: <%#= @user.login %>.<br>
+      <strong>
+        '<%= @user.admin_event.name %>' on <%= @user.admin_event.date_from.strftime("%b %d, %Y at %I:%M%p") %>
+      </strong>
     </p>
+    <br/>
     <p>
-      To login to the site, just follow this link: <%#= @url %>.
+      Event venue details:<br/>
+      <%= @user.admin_event.admin_venue.address %>
     </p>
-    <p>Thanks for joining and have a great day!</p>
+    <br/>
+    <p>
+      Your submitted details are:<br/>
+
+        1. Name: <%= @user.name %>
+	2. E-mail: <%= @user.email %>
+	3. Telephone No: <%= @user.tel_mobile_no %>
+	4. No of places / people: <%= @user.no_of_places_or_people %>
+	5. Comments: <%= @user.comments %>
+      <br/>
+        Thank you for registering.
+    </p>
+    <br/>
+    <p>
+      <br/>
+      ----------------------------------------------------------
+      <br/>
+      Serena BK
+      <br/>
+      bkevents.sg@gmail.com
+    </p>
   </body>
 </html>
