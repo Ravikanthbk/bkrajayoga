@@ -31,11 +31,12 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'events/all'
   get 'events/courses'
-
   get 'events/local_activities'
-
   get 'events/lectures'
+  get 'events/workshops'
+  get 'events/seminars'
 
   namespace :admin do
     resources :events

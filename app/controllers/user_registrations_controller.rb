@@ -1,6 +1,6 @@
 class UserRegistrationsController < ApplicationController
   def new
-    @event = Admin::Event.find(params[:course])
+    @event = Admin::Event.find(params[:register])
     @user_registration = UserRegistration.new
   end
 

@@ -1,4 +1,5 @@
 <div class="well history-content">
+<% unless @courses.blank? %>
   <% @courses.each do |course| %>
 <div class="calfirst">
 <span class="number"><%= course.date_from.strftime("%d")%></span>
@@ -13,9 +14,12 @@
     <%= course.descript.html_safe %>
   </div>
   <p class="pull-right">
-    <%= link_to "Click here to register", new_user_registration_path(course: course), :class=>"btn btn-default btn-lg active" %>
+    <%= link_to "Click here to register", new_user_registration_path(register: course), :class=>"btn btn-default btn-lg active" %>
   </p>
 </div>
 <hr/>
+  <% end %>
+  <% else %>
+   <p>No Courses found</p>
   <% end %>
 </div>
