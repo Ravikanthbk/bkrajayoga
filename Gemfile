@@ -41,11 +41,12 @@ gem 'paperclip'
 
 #gem 'calendar_date_select'
 #gem 'calendar_date_select', :git => 'git://github.com/paneq/calendar_date_select.git'
-gem 'momentjs-rails', '~> 2.9',  :github => 'derekprior/momentjs-rails'
+gem 'momentjs-rails' #, '~> 2.9',  :github => 'derekprior/momentjs-rails'
 gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
 gem 'simple_form'
 gem 'country_select', github: 'stefanpenner/country_select'
 gem "figaro"
+gem 'fullcalendar-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

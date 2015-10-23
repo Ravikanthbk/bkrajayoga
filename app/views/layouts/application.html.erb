@@ -6,6 +6,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag 'shiv1.png' %>
@@ -44,6 +45,9 @@
 					
 					<a href="#" data-toggle="dropdown" class="dropdown-toggle">Events<strong class="caret"></strong></a>
 					<ul class="dropdown-menu">
+						<li>
+							<a href="/events/events_calendar">Events Calendar</a>
+						</li>
 						<li>
 							<a href="/events/all">All Activities</a>
 						</li>

@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'events/events_calendar'
   get 'events/all'
   get 'events/courses'
   get 'events/local_activities'

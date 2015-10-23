@@ -1,5 +1,9 @@
 class EventsController < ApplicationController
 
+  def events_calendar
+    
+  end
+
   def all
     @all = Admin::Event.all
   end
