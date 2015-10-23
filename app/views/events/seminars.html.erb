@@ -1,0 +1,25 @@
+<div class="well history-content">
+<% unless @seminars.blank? %>
+  <% @seminars.each do |seminar| %>
+<div class="calfirst">
+<span class="number"><%= seminar.date_from.strftime("%d")%></span>
+<span class="month"><%= seminar.date_from.strftime("%b")%></span>
+</div>
+<div class="form-group clearfix">
+  <h2 class="events-title">
+    <%= seminar.name %>
+    <p class="event-date"><%= seminar.date_from.strftime("%m/%d/%Y")%></p>
+  </h2>
+  <div class="clearfix">
+    <%= seminar.descript.html_safe %>
+  </div>
+  <p class="pull-right">
+    <%= link_to "Click here to register", new_user_registration_path(register: seminar), :class=>"btn btn-default btn-lg active" %>
+  </p>
+</div>
+<hr/>
+  <% end %>
+  <% else %>
+   <p>No Seminars found</p>
+  <% end %>
+</div>

@@ -1,0 +1,25 @@
+<div class="well history-content">
+  <% unless @all.blank? %>
+  <% @all.each do |event| %>
+<div class="calfirst">
+<span class="number"><%= event.date_from.strftime("%d")%></span>
+<span class="month"><%= event.date_from.strftime("%b")%></span>
+</div>
+<div class="form-group clearfix">
+  <h2 class="events-title">
+    <%= event.name %>
+    <p class="event-date"><%= event.date_from.strftime("%m/%d/%Y")%></p>
+  </h2>
+  <div class="clearfix">
+    <%= event.descript.html_safe %>
+  </div>
+  <p class="pull-right">
+    <%= link_to "Click here to register", new_user_registration_path(register: event), :class=>"btn btn-default btn-lg active" %>
+  </p>
+</div>
+<hr/>
+  <% end %>
+  <% else %>
+   <p>No Events found</p>
+  <% end %>
+</div>

@@ -1,0 +1,26 @@
+<div class="well history-content">
+<% unless @workshops.blank? %>
+  <% @workshops.each do |workshop| %>
+<div class="calfirst">
+<span class="number"><%= workshop.date_from.strftime("%d")%></span>
+<span class="month"><%= workshop.date_from.strftime("%b")%></span>
+</div>
+<div class="form-group clearfix">
+  <h2 class="events-title">
+    <%= workshop.name %>
+    <p class="event-date"><%= workshop.date_from.strftime("%m/%d/%Y")%></p>
+  </h2>
+  <div class="clearfix">
+    <%= workshop.descript.html_safe %>
+  </div>
+  <p class="pull-right">
+    <%= link_to "Click here to register", new_user_registration_path(register: workshop), :class=>"btn btn-default btn-lg active" %>
+  </p>
+</div>
+<hr/>
+  <% end %>
+  <% else %>
+   <p>No Workshops found</p>
+  <% end %>
+
+</div>
