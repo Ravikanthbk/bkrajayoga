@@ -105,4 +105,4 @@ p { text-align: justify}
     text-align: center;
 }
 
-
+.carousel-control:hover, .carousel-control:focus {opacity: 0.5; background-color: rgba(0, 0, 0, 0);}

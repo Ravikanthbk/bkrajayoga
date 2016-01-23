@@ -1,0 +1,21 @@
+<div class="well history-content">
+<h2 style="color: #922582">Signup!</h2>
+
+<%= form_for :user, url: '/users' do |f| %>
+<div class="form-group">
+  <p>Name: <%= f.text_field :name %></p>
+</div>
+<div class="form-group">
+  <p>Email: <%= f.text_field :email %></p>
+</div>
+<div class="form-group">
+  <p>Password: <%= f.password_field :password %></p>
+</div>
+<div class="form-group">
+  <p>Password Confirmation: <%= f.password_field :password_confirmation %></p>
+</div>
+<div class="form-group">
+  <%= f.submit "Submit" %>
+</div>
+<% end %>
+</div>

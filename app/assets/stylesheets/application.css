@@ -11,8 +11,8 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require bootstrap
+ *= require bootstrap-datetimepicker.min
+ *= require fullcalendar
  *= require_self
  */
-*= require bootstrap
-*= require bootstrap-datetimepicker.min
-*= require fullcalendar

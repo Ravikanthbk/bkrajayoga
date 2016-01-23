@@ -24,40 +24,6 @@
 				<li class="<%= menu_active('events') %>">
 					<a href="/admin/events">Manage Events</a>
 				</li>
-<!--
-				<li class="dropdown <%= menu_active('about_us') %>">
-					
-					<a href="/admin/about_us/index" data-toggle="dropdown" class="dropdown-toggle">About Us<strong class="caret"></strong></a>
-					<ul class="dropdown-menu">
-						<li>
-							<a href="/admin/about_us/history">History</a>
-						</li>
-						<li>
-							<a href="/admin/about_us/founder">Founder</a>
-						</li>
-						<li>
-							<a href="/admin/about_us/leaders">Spiritual Leaders</a>
-						</li>
-						<li>
-							<a href="/admin/about_us/experiences">Rajayoga Meditation</a>
-						</li>						
-					</ul>					
-				</li>
-				<li class="dropdown <%= menu_active('contact_us') %>">					
-					<a href="#" data-toggle="dropdown" class="dropdown-toggle">Contact Us<strong class="caret"></strong></a>
-					<ul class="dropdown-menu">
-						<li>
-							<a href="/admin/contact_us/local">Local Contact</a>
-						</li>
-						<li>
-							<a href="/admin/contact_us/head_quaters">Head Quaters</a>
-						</li>
-						<li>
-							<a href="/admin/contact_us/internation">International Links</a>
-						</li>
-					</ul>						
-				</li>
--->
 				<li class="<%= menu_active('articles') %>">
 					<a href="/admin/articles">News & Media</a>
 				</li>
@@ -67,11 +33,19 @@
 				<li class="<%= menu_active('venues') %>">
 					<a href="/admin/venues">Venues</a>
 				</li>
-<!--
-				<li>
-					<a href="#">Gallery</a>
+                                <li class="<%= menu_active('photos') %>">
+                                        <a href="/admin/photos">Upload Photos</a>
+                                </li>
+
+				<li style="float:right">
+                                  <% if current_user %>
+                <span style="color:#fff"> Signed in as <%= current_user.name %> |</span> <%= link_to "Logout", '/logout', {:style => 'display:inline-block'} %>
+                                  <% else %>
+                                    <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+                                  <% end %>
+
 				</li>
--->
+
 			</ul>			
 			<div class="row clearfix content-top">
 				<div class="col-md-12 column">

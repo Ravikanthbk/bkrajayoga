@@ -1,41 +1,35 @@
 			<div class="carousel slide" id="carousel-385695">
 				<ol class="carousel-indicators">
-					<li data-slide-to="0" data-target="#carousel-385695">
+					<li data-slide-to="0" data-target="#carousel-385695" class="active">
 					</li>
-					<li data-slide-to="1" data-target="#carousel-385695" class="active">
+					<li data-slide-to="1" data-target="#carousel-385695">
 					</li>
 					<li data-slide-to="2" data-target="#carousel-385695">
 					</li>
 				</ol>
 				<div class="carousel-inner">
-					<div class="item active">
-					<%= image_tag("carousel/suraj-bhai.jpg", alt: "First Thumbnail label") %> 
-						<div class="carousel-caption">
-							<h4>
-							</h4>
-							<p>
-							</p>
-						</div>
-					</div>
-					<div class="item">						
-<%= image_tag("carousel/raksha-bandhan.jpg", alt: "Second Thumbnail label") %>
-						<div class="carousel-caption">
-							<h4>
-							</h4>
-							<p>
-							</p>
-						</div>
-					</div>
-					<div class="item">
-<%= image_tag("carousel/banner3.jpg", alt: "Third Thumbnail label") %>
-						<div class="carousel-caption">
-							<h4>
-							</h4>
-							<p>
-							</p>
-						</div>
-					</div>
-				</div> <a class="left carousel-control" href="#carousel-385695" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-385695" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+					<% @photos.each do |photo| %>
+					  <% if @photos.first.id.eql?(photo.id) %>
+						<div class="item active">
+					  <% else %>
+					    <div class="item">
+					  <% end %> 		
+						<%= image_tag(photo.image.url(:large), class: 'media-object')  %> 
+							<div class="carousel-caption">
+								<h4>
+								</h4>
+								<p>
+								</p>
+							</div>
+						</div>					  
+					<% end %>
+				</div> 
+<a class="left carousel-control" href="#carousel-385695" data-slide="prev">
+  <span class="glyphicon glyphicon-chevron-left"></span>
+</a> 
+<a class="right carousel-control" href="#carousel-385695" data-slide="next">
+  <span class="glyphicon glyphicon-chevron-right"></span>
+</a>
 			</div>
 
 <div class="well">

@@ -8,7 +8,7 @@ shared_dir = "#{app_dir}/tmp"
 
 rails_env = ENV['RAILS_ENV'] || "production"
 environment rails_env
-daemonize true
+#daemonize true
 
 bind "unix://#{shared_dir}/sockets/puma.sock"
 
@@ -17,3 +17,6 @@ stdout_redirect "#{shared_dir}/log/puma.stdout.log", "#{shared_dir}/log/puma.std
 pidfile "#{shared_dir}/pids/puma.pid"
 state_path "#{shared_dir}/pids/puma.state"
 activate_control_app
+#port = 9292
+#backlog = Integer(50)
+#bind "tcp://0.0.0.0:#{port}?backlog=#{backlog}"

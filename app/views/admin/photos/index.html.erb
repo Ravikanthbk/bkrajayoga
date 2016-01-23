@@ -1,0 +1,18 @@
+<div class="well history-content">
+<h1>Listing Photos <p style="display: inline-block;float: right;"><%= link_to 'Add New Photo (+)', new_admin_photo_path %></p></h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Photo</th>
+      <th>Title</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @photos %>
+  </tbody>
+</table>
+</div>
+
+</div>

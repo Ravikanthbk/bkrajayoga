@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150809212638) do
+ActiveRecord::Schema.define(version: 20160116183727) do
 
   create_table "admin_event_types", force: :cascade do |t|
     t.string   "name"
@@ -38,6 +38,17 @@ ActiveRecord::Schema.define(version: 20150809212638) do
   add_index "admin_events", ["admin_event_type_id"], name: "index_admin_events_on_admin_event_type_id"
   add_index "admin_events", ["admin_venue_id"], name: "index_admin_events_on_admin_venue_id"
   add_index "admin_events", ["venue_id"], name: "index_admin_events_on_venue_id"
+
+  create_table "admin_photos", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
 
   create_table "admin_venues", force: :cascade do |t|
     t.string   "name"
@@ -98,6 +109,13 @@ ActiveRecord::Schema.define(version: 20150809212638) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "photos", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "user_registrations", force: :cascade do |t|
     t.integer  "admin_event_id"
     t.string   "name"
@@ -123,5 +141,13 @@ ActiveRecord::Schema.define(version: 20150809212638) do
   end
 
   add_index "user_registrations", ["admin_event_id"], name: "index_user_registrations_on_admin_event_id"
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
 end
