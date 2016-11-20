@@ -10,91 +10,58 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-
+//= require jquery.min
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 //= require ckeditor/init
 
 //= require moment
 //= require bootstrap-datetimepicker
 //= require pickers
-//= require fullcalendar
 
 $(document).ready(function() {
-//  return $('#calendar').fullCalendar();
+  $('.carousel').carousel({
+    interval: 10000
+  })
 
-$(function() {
-	$('#calendar').fullCalendar({
-		header: {
-			left: 'prev,next today',
-			center: 'title',
-			right: 'month,agendaWeek,agendaDay'
-		},
-		defaultDate: '2015-10-12',
-		editable: true,
-		eventLimit: true, // allow "more" link when too many events
-		events: [
-			{
-				title: 'All Day Event',
-				start: '2015-10-01'
-			},
-			{
-				title: 'Long Event',
-				start: '2015-10-07',
-				end: '2015-10-10'
-			},
-			{
-				id: 999,
-				title: 'Repeating Event',
-				start: '2015-10-09T16:00:00'
-			},
-			{
-				id: 999,
-				title: 'Repeating Event',
-				start: '2015-10-16T16:00:00'
-			},
-			{
-				title: 'Conference',
-				start: '2015-10-11',
-				end: '2015-10-13'
-			},
-			{
-				title: 'Meeting',
-				start: '2015-10-12T10:30:00',
-				end: '2015-10-12T12:30:00'
-			},
-			{
-				title: 'Lunch',
-				start: '2015-02-12T12:00:00'
-			},
-			{
-				title: 'Meeting',
-				start: '2015-10-12T14:30:00'
-			},
-			{
-				title: 'Happy Hour',
-				start: '2015-10-12T17:30:00'
-			},
-			{
-				title: 'Dinner',
-				start: '2015-10-12T20:00:00'
-			},
-			{
-				title: 'Birthday Party',
-				start: '2015-10-13T07:00:00'
-			},
-			{
-				title: 'Click for Google',
-				url: 'http://google.com/',
-				start: '2015-10-28'
-			}
-		]
-	});
-});
+  $('.user').hover(function() {
+    $(this).next('.popup').show();
+  }, function() {
+    $(this).next('.popup').hide();
+  });
+
+  $('ul.nav li.dropdown').hover(function() {
+    $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
+  }, function() {
+    $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+  });
+
+  if ($(".banner-header-nav").length){
+    var distance = $('div').offset().top;
+    $window = $(window);
+
+    $window.scroll(function() {
+      if ( $window.scrollTop() == distance ) {
+        $(".banner-header-nav").removeClass("banner-header-nav-white");
+        $("a.call-email-font").removeClass("call-email-font-black");
+        $(".contact-info-motto").removeClass("contact-info-motto-black");
+        $(".navbar-inverse").removeClass("navbar-inverse-black");
+        $('.bk-sg-logo').removeClass('bk-sg-logo-red');
+        $('.icon-phone').removeClass("icon-phone-black");
+        $('.icon-envelope').removeClass("icon-envelope-black");
+      }else{
+        $(".banner-header-nav").addClass("banner-header-nav-white");
+        $("a.call-email-font").addClass("call-email-font-black");
+        $(".contact-info-motto").addClass("contact-info-motto-black");
+        $(".navbar-inverse").addClass("navbar-inverse-black");
+        $('.bk-sg-logo').addClass('bk-sg-logo-red');
+        $('.icon-phone').addClass("icon-phone-black");
+        $('.icon-envelope').addClass("icon-envelope-black");
+      }
+    });
+  }
 
 
 });
-
 

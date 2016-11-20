@@ -11,12 +11,14 @@
   <%= favicon_link_tag 'shiv1.png' %>
 </head>
 <body>
-<div class="container">
+<div class="container admin">
 	<div class="row clearfix">
 		<div class="col-md-12 column">
 			<div class="page-header bk-header-sg">
-  <%= image_tag("header/banner-1.jpg", alt: "Brahmakumaris Singapore Header") %>				
+  <%= image_tag("header/banner-2.jpg", alt: "Brahmakumaris Singapore Header") %>				
 			</div>
+                 </div>
+                 <div class="col-md-12 column"> 
 			<ul class="nav nav-pills navbar-inverse">
 				<li class="<%= menu_active('event_types') %>">
 					<a href="/admin/event_types">Event Types</a>
@@ -25,7 +27,7 @@
 					<a href="/admin/events">Manage Events</a>
 				</li>
 				<li class="<%= menu_active('articles') %>">
-					<a href="/admin/articles">News & Media</a>
+					<a href="/admin/articles">Gallery</a>
 				</li>
 				<li class="<%= menu_active('experiences') %>">
 					<a href="/admin/experiences">Experiences & Sharing</a>
@@ -36,7 +38,9 @@
                                 <li class="<%= menu_active('photos') %>">
                                         <a href="/admin/photos">Upload Photos</a>
                                 </li>
-
+                                <li class="<%= menu_active('mailing_users') %>">
+                                        <a href="/admin/mailing_users">Mailing List</a>
+                                </li>
 				<li style="float:right">
                                   <% if current_user %>
                 <span style="color:#fff"> Signed in as <%= current_user.name %> |</span> <%= link_to "Logout", '/logout', {:style => 'display:inline-block'} %>

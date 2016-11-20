@@ -1,4 +1,7 @@
 <%= form_for([object, object.comments.build]) do |f| %>
+  <% if !flash[:warning].blank? %>
+    <div class="alert alert-danger"> <%= flash[:warning] %></div>
+  <% end %> 
   <div class="form-group">
     <%= f.label :name %><br>
     <%= f.text_field :commenter, :class => "form-control", :placeholder => "Name" %>
@@ -12,7 +15,7 @@
     <%= f.text_area :body, :class => "form-control", :rows => "3", :placeholder => "Comment..." %>
   </div>
   <div class="form-group">
-    <%= f.submit :class => "btn btn-primary" %>
+    <%= f.submit "Submit", :class => "btn btn-primary" %>
   </div>
 <% end %>
 

@@ -1,0 +1,43 @@
+<div class="well history-content">
+<p id="notice"><%= notice %></p>
+<h3>
+  Registered users for the event: <%= @admin_event.name %>
+</h3>
+<div class="clearfix download-div">
+  <span class="flt-right download"> <%= link_to "Download", registrations_admin_event_path(@admin_event) %> </span>
+  <span class="flt-right">Total Participants: <%= @users.sum(:no_of_places_or_people) %> </span>
+  <span class="flt-right">Registered Participants: <%= @users.size %> </span>
+</div>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Tel /Mobile No</th>
+      <th>Number of people</th>
+      <th colspan="2">Comments</th>
+<!--
+      <th colspan="3"></th>
+-->
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.tel_mobile_no %></td>
+        <td><%= user.no_of_places_or_people %></td>
+        <td><%= truncate(user.comments, :length => 50, :omission => '...') %></td>
+<!--
+        <td><%#= link_to 'Show', admin_event %></td>
+        <td><%#= link_to 'Edit', edit_admin_event_path(admin_event) %></td>
+        <td><%#= link_to 'Delete', admin_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+-->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>

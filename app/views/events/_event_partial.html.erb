@@ -1,0 +1,26 @@
+<div class="calfirst">
+<span class="number"><%= event_partial.date_from.strftime("%d")%></span>
+<span class="month"><%= event_partial.date_from.strftime("%b")%></span>
+</div>
+<div class="form-group clearfix">
+  <h2 class="events-title">
+    <%= event_partial.name %><br/>
+    <span class="event-date">
+      <%= event_partial.date_from.strftime("%d/%m/%Y %I:%M %p")%> - <%= event_partial.date_to.strftime("%d/%m/%Y %I:%M %p")%> 
+    </span>
+  </h2>
+  <div class="clearfix">
+    <%= event_partial.descript.html_safe %>
+  </div>
+  <p class="pull-right">
+    <% if event_partial.date_from >= Time.zone.now.beginning_of_day %>
+      <% if event_partial.registration %>
+        <%= link_to "Register", new_user_registration_path(register: event_partial), :class=>"btn btn-primary" %>
+      <% end %>
+    <% else %>
+      <%= link_to "Closed", new_user_registration_path(register: event_partial), :class=>"btn btn-primary disabled" %>
+    <% end %>
+  </p>
+</div>
+<hr/>
+

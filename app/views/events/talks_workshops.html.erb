@@ -1,0 +1,7 @@
+<div class="well history-content events-all">
+<% unless @talks_workshops.blank? %>
+  <%= render partial: 'event_partial', collection: @talks_workshops %>
+<% else %>
+  <p>No Talks & Workshops found</p>
+<% end %>
+</div>

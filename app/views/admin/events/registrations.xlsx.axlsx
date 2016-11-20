@@ -1,0 +1,17 @@
+wb = xlsx_package.workbook
+wb.styles do |style|
+highlight_cell = style.add_style(bg_color: "0C31EA", fg_color: "FFFFFF", border: Axlsx::STYLE_THIN_BORDER,
+ alignment: { horizontal: :center, wrap_text: true }, height: 25)
+  wb.add_worksheet(name: "Registrations") do |sheet|
+    sheet.add_row ["Event Name: #{@admin_event.name}"], style: [highlight_cell]
+    sheet.add_row ["Date From: #{@admin_event.date_from.strftime('%d/%m/%Y %I:%M %p')}"], style: [highlight_cell]
+    sheet.add_row ["Date To: #{@admin_event.date_to.strftime('%d/%m/%Y %I:%M %p')}"], style: [highlight_cell]
+    sheet.merge_cells("A1:D1")
+    sheet.add_row ["Name","Email","Phone no", "Number of People"], style: [highlight_cell, highlight_cell, highlight_cell, highlight_cell]
+    sheet.column_widths 30, 30, 10, 10
+    @users.each do |user|
+        sheet.add_row [user.name, user.email, user.tel_mobile_no, user.no_of_places_or_people]
+    end
+  end
+end
+

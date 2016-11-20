@@ -17,7 +17,7 @@ gem 'therubyracer', platforms: :ruby
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+#gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -48,7 +48,11 @@ gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: '
 gem 'simple_form'
 gem 'country_select', github: 'stefanpenner/country_select'
 gem "figaro"
-gem 'fullcalendar-rails'
+#gem 'fullcalendar-rails'
+gem "simple_calendar", "~> 2.0"
+gem "jw_player_helper"
+gem 'axlsx', '~> 2.0'
+gem "axlsx_rails"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

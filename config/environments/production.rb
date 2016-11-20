@@ -22,7 +22,8 @@ Rails.application.configure do
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
-  config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  #config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  config.serve_static_files = true
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
@@ -80,11 +81,12 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
-    port:                 587,
-    domain:               'gmail.com',
-    user_name:            ENV['gmail_username'],
-    password:             ENV['gmail_password'],
-    authentication:       'plain',
-    enable_starttls_auto: true  }
+   address: 'localhost',
+   port: 25,
+   domain: 'localhost',
+   user_name: 'events@brahmakumaris.org.sg',
+   password: 'bkryc1980',
+   authentication: 'plain',
+   enable_starttls_auto: false 
+ }
 end

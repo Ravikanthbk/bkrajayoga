@@ -1,5 +1,4 @@
 class Admin::ExperiencesController < ApplicationController
-  #http_basic_authenticate_with name: ENV['admin_username'], password: ENV['admin_password']
   before_filter :authorize
   layout "admin"
 
@@ -8,7 +7,6 @@ class Admin::ExperiencesController < ApplicationController
   # GET /admin/experiences
   # GET /admin/experiences.json
   def index
-    #@experiences = Experience.all
     @experiences = Experience.order(created_at: :desc)
   end
 
@@ -61,7 +59,7 @@ class Admin::ExperiencesController < ApplicationController
   def destroy
     @experience.destroy
     respond_to do |format|
-      format.html { redirect_to admin_experiences_url, notice: 'Experience was successfully destroyed.' }
+      format.html { redirect_to admin_experiences_url, notice: 'Experience was successfully deleted.' }
       format.json { head :no_content }
     end
   end

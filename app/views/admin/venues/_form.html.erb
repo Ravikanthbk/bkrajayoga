@@ -9,12 +9,15 @@
     <%= f.input :email %>
     <%= f.input :city_locality %>
     <%= f.input :postcode %>
-    <%= f.country_select("country") %>
+    <div class="form-group string required admin_venue_country">
+      <label class="string required control-label" for="admin_venue_country"><abbr title="required">*</abbr> Country</label>
+      <%= f.country_select :country, ['SG'] %>
+    </div>
     <%= f.input :remarks %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.submit "Submit" %>
   </div>
 <% end %>
 

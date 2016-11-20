@@ -1,0 +1,25 @@
+<div class="well history-content">
+<p id="notice"><%= notice %></p>
+<h3>Mailing User List</h3>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone no </th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_mailing_list.each do |mailing_list| %>
+      <tr>
+        <td><%= mailing_list.name %></td>
+        <td><%= mailing_list.email %></td>
+        <td><%= mailing_list.phone_no %></td>
+        <td><%= link_to 'Delete',  admin_mailing_user_path(mailing_list), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

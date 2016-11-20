@@ -1,5 +1,20 @@
 Rails.application.routes.draw do
 
+  get 'newsletters/index'
+
+  get 'newsletters/show'
+  get 'newsletters/show_2016'
+
+  namespace :admin do
+    #get 'mailing_users/index'
+    resources :mailing_users
+  end
+
+  resources :mailing_users
+  #get 'mailing_users/new'
+
+  #get 'mailing_users/show'
+
 #  resources :photos, only: [:new, :create, :index, :destroy]
 
   namespace :admin do
@@ -49,15 +64,28 @@ Rails.application.routes.draw do
   end
 
   get 'events/events_calendar'
+  get 'events/events_calendar_event'
   get 'events/all'
   get 'events/courses'
   get 'events/local_activities'
   get 'events/lectures'
   get 'events/workshops'
   get 'events/seminars'
+  get 'events/talks_workshops'
+
+  get 'events/about_courses'
+  get 'events/about_lectures'
+  get 'events/about_workshops'
+  get 'events/about_seminars'
+  get 'events/about_talks_workshops'
 
   namespace :admin do
-    resources :events
+    resources :events do
+      member do
+        get 'user_list'
+        get 'registrations'
+      end
+    end
   end
 
   namespace :admin do
@@ -73,6 +101,8 @@ Rails.application.routes.draw do
   get 'about_us/index'
 
   get 'about_us/history'
+  
+  get 'about_us/singapore'
 
   get 'about_us/founder'
 

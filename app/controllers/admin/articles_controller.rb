@@ -1,5 +1,4 @@
 class Admin::ArticlesController < ApplicationController
- # http_basic_authenticate_with name: ENV['admin_username'], password: ENV['admin_password']
   before_filter :authorize
   layout "admin"
   before_action :set_article, only: [:show, :edit, :update, :destroy]
@@ -7,7 +6,6 @@ class Admin::ArticlesController < ApplicationController
   # GET /admin/articles
   # GET /admin/articles.json
   def index
-    #@articles = Article.all
     @articles = Article.order(created_at: :desc)
   end
 
@@ -62,7 +60,7 @@ class Admin::ArticlesController < ApplicationController
   def destroy
     @article.destroy
     respond_to do |format|
-      format.html { redirect_to admin_articles_url, notice: 'Article was successfully destroyed.' }
+      format.html { redirect_to admin_articles_url, notice: 'Article was successfully deleted.' }
       format.json { head :no_content }
     end
   end

@@ -1,9 +1,27 @@
-<div class="well history-content">
-<h2 style="color: #922582"><%= @event.name %></h2>
-  <div class="form-group">
-    <p><%= label_tag :date %>: <%= @event.date_from.strftime("%b %d, %Y - %I:%M %p") %></p>    
-  </div>
+<div class="well history-content events-all">
+  <% if @user_registration.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user_registration.errors.count, "error") %> prohibited this event from being saved:</h2>
 
+      <ul>
+      <% @user_registration.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<h2 class="events-title">
+  <%= @event.name %><br>
+  <span class="event-date">
+    <%= label_tag :date %>: <%= @event.date_from.strftime("%b %d, %Y - %I:%M %p") %>
+  </span>
+</h2>
+<!--
+  <div class="form-group">
+    <p><%#= label_tag :date %>: <%= @event.date_from.strftime("%b %d, %Y - %I:%M %p") %></p>    
+  </div>
+-->
 <%= simple_form_for(@user_registration) do |f| %>
 <%= f.hidden_field :admin_event_id, :value => @event.id %>
   <div class="form-group">
@@ -16,7 +34,7 @@
     <p><%= f.label "Telephone number:" %>:     <%= f.text_field :tel_mobile_no, :class => "form-control" %></p>
   </div>
   <div class="form-group">
-    <p><%= f.label "No of places / people:" %>: 
+    <p><%= f.label "Number of  people:" %>: 
 <%= f.select("no_of_places_or_people", [1,2,3,4,5,6,7]) %>
    </p>
   </div>
@@ -25,7 +43,7 @@
        <%= f.text_area :comments, :class => "form-control" %></p>
   </div>
   <div class="form-group">
-    <%= f.submit :class => "btn btn-primary" %>
+    <%= f.submit "Submit", :class => "btn btn-primary" %>
   </div>
 <% end %>
 </div>

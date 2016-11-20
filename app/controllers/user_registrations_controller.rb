@@ -6,7 +6,7 @@ class UserRegistrationsController < ApplicationController
 
   def create
     @user_registration = UserRegistration.new(user_registration_params)
-
+    @event = Admin::Event.find(params["user_registration"]["admin_event_id"]) 
     respond_to do |format|
       if @user_registration.save
         UserMailer.welcome_email(@user_registration).deliver_later

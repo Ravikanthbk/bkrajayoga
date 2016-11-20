@@ -1,4 +1,8 @@
 <div class="well">
+<p class="delete-comment">
+  <%= link_to 'Delete Comment (X)', [:admin, comment.source, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+</p>
+
 <p>
   <strong>Name:</strong>
   <%= comment.commenter %>
@@ -10,10 +14,5 @@
 <p>
   <strong>Comment:</strong>
   <%= comment.body %>
-</p>
-<p>
-  <%= link_to 'Destroy Comment', [comment.source, comment],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
 </p>
 </div>

@@ -1,6 +1,5 @@
 <div class="well history-content">
 <%= link_to 'Back', admin_experiences_path %>
-<p id="notice"><%= notice %></p>
 <div class="form-group">
   <h2 class="well-h2">
     <%= @experience.title %>
@@ -13,17 +12,21 @@
 </div>
 
 <div class="form-group">
-  <strong>Is Published?:</strong>
-  <%= @experience.published %>
+  <strong>Published:</strong>
+  <%= is_published(@experience.published) %>
 </div>
-
+<!--
 <div class="form-group">
   <strong>Published at:</strong>
-  <%= @experience.published_at.strftime("%m/%d/%Y %I:%M %p") %>
+  <%#= @experience.published_at.strftime("%d/%m/%Y %I:%M %p") %>
 </div>
-
+-->
 <div class="clearfix">
   <h3>View Comments (<%= @experience.comments.count %>)</h3>
+  <% unless flash[:delete_notice].blank? %>
+    <div class="alert alert-danger"><%= flash[:delete_notice] %></div>
+  <% end %>
+
   <%= render @experience.comments %> 
 </div>
 

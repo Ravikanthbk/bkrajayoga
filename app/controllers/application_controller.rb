@@ -3,7 +3,11 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_filter :sidebar_events
+  before_filter :sidebar_events, :photo_carousel
+
+  def photo_carousel
+    @photos = Admin::Photo.order('created_at').limit(3)
+  end
 
   def sidebar_events
     @event_types = Admin::EventType.all

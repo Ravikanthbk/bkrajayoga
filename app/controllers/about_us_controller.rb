@@ -5,6 +5,10 @@ class AboutUsController < ApplicationController
   def history
   end
 
+  def singapore
+
+  end
+
   def founder
   end
 

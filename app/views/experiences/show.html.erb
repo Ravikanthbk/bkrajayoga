@@ -10,10 +10,14 @@
 
 <div class="form-group text-right">
   <strong>Published at:</strong>
-  <%= @experience.published_at.strftime("%m/%d/%Y %I:%M %p")  %>
+  <%= @experience.published_at.strftime("%d/%m/%Y %I:%M %p")  %>
 </div>
 
 <div class="well">
+  <% if !flash[:success].blank? %>
+   <div class="alert alert-success"> <%= flash[:success] %></div>
+  <% end %>
+
 <h4>Comments (<%= @experience.comments.count %>)</h4>
 <%= render @experience.comments %> 
 </div>

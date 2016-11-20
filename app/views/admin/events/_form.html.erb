@@ -1,4 +1,3 @@
-<%#= form_for(@admin_event) do |f| %>
 <%= simple_form_for(@admin_event) do |f| %>
   <% if @admin_event.errors.any? %>
     <div id="error_explanation">
@@ -22,6 +21,10 @@
   <div class="form-group">
     <p><%= f.label :description %></p>
     <%= f.cktext_area :descript %>
+  </div>
+  <div class="form-group">
+      <%= f.label "Display Registration button?" %>:
+    <%= f.check_box :registration %> (Please tick for Yes)
   </div>
 <!--
   <div class="form-group">
@@ -52,6 +55,6 @@
     <%= f.collection_select :admin_venue_id, Admin::Venue.all, :id, :name, {prompt: "Select venue"} %>
   </div>
   <div class="form-group">
-    <%= f.submit :class => "btn btn-primary" %>
+    <%= f.submit "Submit", :class => "btn btn-primary" %>
   </div>
 <% end %>

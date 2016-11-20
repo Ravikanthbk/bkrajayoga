@@ -3,12 +3,13 @@ class Admin::EventsController < ApplicationController
   before_filter :authorize  
   layout "admin"
 
-  before_action :set_admin_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_admin_event, only: [:show, :edit, :update, :destroy, :user_list, :registrations]
 
   # GET /admin/events
   # GET /admin/events.json
   def index
-    @admin_events = Admin::Event.all
+    #@admin_events = Admin::Event.order(:created_at)
+    @admin_events = Admin::Event.order('date_from desc')
   end
 
   # GET /admin/events/1
@@ -65,6 +66,15 @@ class Admin::EventsController < ApplicationController
     end
   end
 
+  def user_list
+    @users = UserRegistration.where(:admin_event_id => params["id"])
+  end
+
+  def registrations
+    @users = UserRegistration.where(:admin_event_id => params["id"])
+    render xlsx: "registrations", template: "admin/events/registrations.xlsx"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_event
@@ -73,6 +83,6 @@ class Admin::EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_event_params
-      params.require(:admin_event).permit(:date_from, :date_to, :descript, :filename, :ticker, :name, :admin_event_type_id, :admin_venue_id)
+      params.require(:admin_event).permit(:date_from, :date_to, :descript, :filename, :ticker, :name, :admin_event_type_id, :admin_venue_id, :registration)
     end
 end

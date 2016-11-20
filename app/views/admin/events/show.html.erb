@@ -13,6 +13,10 @@
   <strong>Descript:</strong>
   <%= @admin_event.descript.html_safe %>
 </p>
+<p>
+  <strong>Display Registration button?:</strong>
+  <%= @admin_event.registration ? "Yes" : "No" %>
+</p>
 
 <!--
 <p>
@@ -28,12 +32,12 @@
 
 <p>
   <strong>Date from:</strong>
-  <%= @admin_event.date_from.strftime("%m/%d/%Y %I:%M %p") %>
+  <%= @admin_event.date_from.strftime("%d/%m/%Y %I:%M %p") %>
 </p>
 
 <p>
   <strong>Date to:</strong>
-  <%= @admin_event.date_to.strftime("%m/%d/%Y %I:%M %p") %>
+  <%= @admin_event.date_to.strftime("%d/%m/%Y %I:%M %p") %>
 </p>
 <p>
   <strong>Venue:</strong>

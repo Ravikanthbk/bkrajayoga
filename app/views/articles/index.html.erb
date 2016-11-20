@@ -1,10 +1,14 @@
-<div class="well history-content">
+<div class="well history-content gallery-content">
   <% @articles.each do |article| %>
     <% if article.published %>
-      <h3 class="well-h3"><%= link_to article.title, article, :class => "list-h3"%></h3>
+<!--
+      <h3 class="well-h3 list-h3"><%#= article.title %><%#= link_to article.title, article, :class => "list-h3"%></h3>
+-->
       <div class="clearfix">
-        <p><%#= article.content.html_safe %></p>
-	<p><%= link_to "Comments (#{article.comments.count})", article %> </p>
+        <p><%= article.content.html_safe %></p>
+<!--
+	<p><%#= link_to "Comments (#{article.comments.count})", article %> </p>
+-->
       </div>
       <hr>
     <% end %>

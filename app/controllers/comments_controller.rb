@@ -2,7 +2,12 @@ class CommentsController < ApplicationController
   def create 
     @commentable = find_commentable  
     @comment = @commentable.comments.create(comment_params) 
-    redirect_to @comment.source
+    if @comment.save
+      flash[:success] = "Successfully posted the comment."
+    else
+      flash[:warning] = "Please fill the form completly"
+    end    
+    redirect_to  @comment.source
   end  
  
   private
