@@ -20,3 +20,4 @@
 .ruby-gemset
 public/*
 public/assets/**
+.DS_Store
