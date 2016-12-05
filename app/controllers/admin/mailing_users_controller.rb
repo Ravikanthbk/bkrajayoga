@@ -9,9 +9,6 @@ class Admin::MailingUsersController < ApplicationController
   end
 
   def destroy
-    puts "========================================"
-    puts @admin_mailing_user.inspect
-    puts "========================================"
     @admin_mailing_user.destroy
     respond_to do |format|
       format.html { redirect_to admin_mailing_users_url, notice: 'User successfully deleted.' }

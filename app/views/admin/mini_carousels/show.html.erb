@@ -1,0 +1,33 @@
+<div class="well history-content">
+<p id="notice"><%= notice %></p>
+<div>
+<p>
+  <%= image_tag(@admin_mini_carousel.image.url(:large))  %>
+</p>
+</div>
+
+<p>
+  <strong>Title:</strong>
+  <%= @admin_mini_carousel.title %>
+</p>
+
+<% if @admin_mini_carousel.is_url %>
+<p>
+  <strong>URL to link image:</strong>
+  <%= @admin_mini_carousel.url %>
+</p>
+<% end %>
+
+<p>
+  <strong>Description:</strong>
+  <%= @admin_mini_carousel.description %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @admin_mini_carousel.active ? "Yes" : "No" %>
+</p>
+
+<%= link_to 'Edit', edit_admin_mini_carousel_path(@admin_mini_carousel) %> |
+<%= link_to 'Back', admin_mini_carousels_path %>
+</div>

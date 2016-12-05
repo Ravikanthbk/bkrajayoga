@@ -14,197 +14,26 @@
   <%= favicon_link_tag 'shiv2.png' %>
 </head>
 <body>
-<div class="container">
+  <div class="container">
 	<div class="row clearfix">
-		<div class="col-md-12 column sg-header">
-                  <div class="banner-header-nav">
-                                <ul class="contact-info">
-                                  <li title="call us" class="contact-info-li">
-                                        <em class="icon-phone">&nbsp;&nbsp;&nbsp;</em>
-                                        <a href="tel:64411411" class="call-email-font">+65 6441 1411</a>
-                                  </li>
-                                  <li title="email us" class="contact-info-li">
-                                        <em class="icon-envelope">&nbsp;&nbsp;&nbsp;</em>
-                                        <span id="sg-email">
-                                          <a href="mailto:singapore@sg.brahmakumaris.org" class="call-email-font">singapore@sg.brahmakumaris.org</a>
-                                        </span>
-                                  </li>
-                                  <li class="contact-info-li-motto">
-                                    <span class="contact-info-motto">Master your Mind... Design your Life</span>
-                                  </li>
-                                </ul>
-			<div class="page-header bk-header-sg">
-                          <em class="merlion">&nbsp;&nbsp;&nbsp;</em>
-                          <em class="bk-sg-logo">&nbsp;&nbsp;&nbsp;</em>
-			</div>
-                        <ul class="nav nav-pills navbar-inverse">
-                                <li class="<%= menu_active('home') %>">
-                                  <%= link_to "Home", home_index_path %>
-                                </li>
-                                <li class="dropdown <%= menu_active('about_us', 'singapore') %>">
-
-                                        <a href="/about_us/index" data-toggle="dropdown" class="dropdown-toggle">About Us<strong class="caret"></strong></a>
-                                        <ul class="dropdown-menu">
-                                                <li>
-                                                        <a href="/about_us/singapore">Singapore</a>
-                                                </li>
-                                                <li>
-                                                        <a href="http://brahmakumaris.org/" target="_blank">Brahma Kumaris International</a>
-                                                </li>
-                                        </ul>
-                                </li>
-                                <li class="dropdown <%= menu_active('about_us', 'experiences') %>">
-                                   <a href="/about_us/experiences">Meditation</a>
-                                </li>
-                                <li class="dropdown <%= menu_active('events') %>">
-
-                                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Events<strong class="caret"></strong></a>
-                                        <ul class="dropdown-menu">
-                                                <li>
-                                                        <a href="/events/events_calendar">Events Calendar</a>
-                                                </li>
-                                                <li>
-                                                        <a href="/events/about_courses">Courses</a>
-                                                </li>
-                                                <li>
-                                                        <a href="/events/about_talks_workshops">Talks & Workshops</a>
-                                                </li>
-                                                <li>
-                                                        <a href="/events/all">All Activities</a>
-                                                </li>
-                                                <li>
-                                                        <a href="/events/local_activities">Local Activities</a>
-                                                </li>
-                                        </ul>
-                                </li>
-
-                                <li class="<%= menu_active('articles') %>">
-                                        <a href="/articles">Gallery</a>
-                                </li>
-                                <li class="<%= menu_active('experiences') %>">
-                                        <a href="/experiences">Experiences & Sharing</a>
-                                </li>
-                                <li class="dropdown <%= menu_active('contact_us') %>">
-                                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Contact Us<strong class="caret"></strong></a>
-                                        <ul class="dropdown-menu">
-                                                <li>
-                                                        <a href="/contact_us/local">Local Contact</a>
-                                                </li>
-                                        </ul>
-                                </li>
-                        </ul>
-                   </div>
-                 </div>
-                 <div class="col-md-12 column sg-body"> 
-      <% unless @photos.blank? %>
-        <div class="carousel carousel-fade slide" id="carousel-385695">
-                                <ol class="carousel-indicators">
-                                        <li data-slide-to="0" data-target="#carousel-385695" class="active">
-                                        </li>
-                                        <li data-slide-to="1" data-target="#carousel-385695">
-                                        </li>
-                                        <li data-slide-to="2" data-target="#carousel-385695">
-                                        </li>
-                                </ol>
-                                <div class="carousel-inner">
-                                        <% @photos.each do |photo| %>
-                                          <% if @photos.first.id.eql?(photo.id) %>
-                                                <div class="item active">
-                                          <% else %>
-                                            <div class="item">
-                                          <% end %>
-                                                <%= image_tag(photo.image.url(:large), class: 'media-object')  %>
-                                                        <div class="carousel-caption">
-                                                                <h4>
-                                                                  <%#= photo.title %>
-                                                                </h4>
-                                                                <p style="text-align:center">
-                                                                  <%#= photo.description %>
-                                                                </p>
-                                                        </div>
-                                                </div>
-                                        <% end %>
-                                </div>
-<a class="left carousel-control" href="#carousel-385695" data-slide="prev">
-  <span class="glyphicon glyphicon-chevron-left"></span>
-</a>
-<a class="right carousel-control" href="#carousel-385695" data-slide="next">
-  <span class="glyphicon glyphicon-chevron-right"></span>
-</a>
-                        </div>
-<% end %>
-
-			<div class="row clearfix content-top">
-<% if (['events', 'contact_us'].include?(controller.controller_name) && ['events_calendar', 'local'].include?(controller.action_name)) %>
-                                <div class="col-md-12 column">
-<% else %>
-				<div class="col-md-8 column">
-<% end %>
-				  <%= yield %>								
-				</div>
-<% unless (['events', 'user_registrations', 'contact_us'].include?(controller.controller_name) && ['events_calendar', 'new', 'local'].include?(controller.action_name)) %>
-				<div class="col-md-4 column">
-					<div class="list-group">
-<a href="http://www.brahmakumaris.org/uk/thoughts" target="_blank" class="list-group-item sg-side-bar">>> Thought for the day</a>
-<%= link_to ">> Newsletter", newsletters_index_path, :class => "list-group-item sg-side-bar" %>
-<a href="/mailing_users/new" class="list-group-item sg-side-bar">>> Join our mailing list</a>
-<a href="http://www.the-yoga-shop.com" target="_blank" class="list-group-item sg-side-bar">>> Yoga Shop</a>
-					</div>
-					
-<% @event_types.each do |event_type|%>
-  <% events = Admin::Event.where("admin_event_type_id = ? AND date_to >= ?", 
-              event_type, Time.zone.now.beginning_of_day).order(date_from: :desc) %>
-  <% events_limit = events.first(2)%>
- <% unless events.blank? %>
-   <a class="list-group-item active"><%= event_type.name %></a>
-    <% events_limit.each do |event|%>
-	<div class="list-group-item">
-        <p><strong>
-          <%= link_to truncate(event.name, :length => 40, :omission => '...'), events_events_calendar_event_path({event_id: event.id}) %>
-        </strong></p>
-	<p><strong>Start Date / Time :</strong> <%= event.date_from.strftime("%d/%m/%Y") %> <%= event.date_from.strftime("%I:%M %p") %></p>  
-	<p><strong>End Date / Time &nbsp;&nbsp;:</strong> <%= event.date_to.strftime("%d/%m/%Y") %> <%= event.date_to.strftime("%I:%M %p") %></p>
-	</div>
-    <% end %>
-    <% if events.size > 2 %>
-      <div class="list-group-item more-events">
-       <% begin %>
-        <%= link_to "Click here for more #{ event_type.name.downcase}...", send("events_#{event_type_name(event_type.name)}_path") %>
-       <% rescue %>
-       <% end %>
+	  <div class="col-md-12 column sg-header">
+        <div class="banner-header-nav">
+          <%= render partial: 'layouts/contact_us_header' %>                    
+		  <%= render partial: 'layouts/nav_bar' %>                          
+        </div>
       </div>
-    <% end %>
-  <% end %>
-<% end %>
-					</div>					
-<% end %>				
-				</div>
-			</div>
-			<div class="page-footer">
-				<div class="copyright">
-					© Copyright 2016 Brahma Kumaris World Spiritual Organization
-				</div>
-				<div class="footer-links">
-                                 <!--
-				   <a href="http://www.bkwsu.org/singapore"> Link To Us</a> &nbsp; | &nbsp;
-				   <a href="#" target="_blank">Site Map</a> &nbsp; | &nbsp;
--->
-				   <a href="/events/about_courses" target="_blank"> FAQ </a> &nbsp; | &nbsp;
-<!--
-				   <a href="#" target="_blank">Feedback</a> &nbsp; | &nbsp;
--->
-				   <a href="https://m.facebook.com/profile.php?id=100344083401294" target="_blank">Facebook</a> &nbsp; | &nbsp;
-				   <a href="https://www.youtube.com/channel/UCH1RNkKKPNX6WMwrwheFibg" target="_blank">Youtube</a> &nbsp; | &nbsp;
-				   <a href="#" target="_blank">Twitter</a> &nbsp; | &nbsp;
-<!--
-				   <a href="#" target="_blank">RSS</a>
--->
-				</div>
-			</div>
-		</div>
+     <div class="col-md-12 column sg-body">
+	   <%= render partial: 'layouts/carousel', object: @photos %>	  
+	   <div class="row clearfix content-top">
+	     <%= render partial: 'layouts/yield_layout' %>  	   
+		 <%= render partial: 'layouts/side_bar', object: @event_types %>	  
+	   </div>
+	 </div>
+	 <div class="page-footer">
+	   <%= render partial: 'layouts/footer' %> 	 
+	 </div>
 	</div>
+  </div>
 </div>
-
-
 </body>
 </html>

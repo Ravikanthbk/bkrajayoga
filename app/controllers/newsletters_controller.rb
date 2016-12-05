@@ -1,11 +1,10 @@
-class NewslettersController < ApplicationController
+class NewslettersController < ApplicationController  
   def index
+    @newsletters = Admin::Newsletter.all
   end
 
   def show
-  end
-
-  def show_2016
-
-  end
+    @newsletter = Admin::Newsletter.find(params[:newsletter_id])
+    @pictures = @newsletter.admin_pictures 
+  end    
 end

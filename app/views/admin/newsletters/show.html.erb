@@ -1,0 +1,20 @@
+<div class="well history-content">
+<p id="notice"><%= notice %></p>
+<div>
+ <div class="form-group">
+  <strong>Title:</strong>
+  <%= @admin_newsletter.title %>
+ (<%= link_to 'Edit', edit_admin_newsletter_path(@admin_newsletter) %> |
+ <%= link_to 'Back', admin_newsletters_path %> )
+</div>
+
+<% @admin_newsletter.admin_pictures.each do |picture| %>
+<div class="form-group">
+ <p>
+  <%= image_tag(picture.image.url(:large))  %>
+ </p> 
+</div>
+<% end %>
+</div>
+
+</div>

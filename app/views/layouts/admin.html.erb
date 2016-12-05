@@ -35,18 +35,24 @@
 				<li class="<%= menu_active('venues') %>">
 					<a href="/admin/venues">Venues</a>
 				</li>
-                                <li class="<%= menu_active('photos') %>">
-                                        <a href="/admin/photos">Upload Photos</a>
-                                </li>
-                                <li class="<%= menu_active('mailing_users') %>">
-                                        <a href="/admin/mailing_users">Mailing List</a>
-                                </li>
+				<li class="<%= menu_active('photos') %>">
+								<a href="/admin/photos">Carousel</a>
+				</li>
+				<li class="<%= menu_active('mini_carousels') %>">
+					<a href="/admin/mini_carousels">Mini Carousel</a>
+				</li>
+				<li class="<%= menu_active('newsletters') %>">
+					<a href="/admin/newsletters">Newsletters</a>
+				</li>				
+				<li class="<%= menu_active('mailing_users') %>">
+								<a href="/admin/mailing_users">Mailing List</a>
+				</li>
 				<li style="float:right">
-                                  <% if current_user %>
-                <span style="color:#fff"> Signed in as <%= current_user.name %> |</span> <%= link_to "Logout", '/logout', {:style => 'display:inline-block'} %>
-                                  <% else %>
-                                    <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
-                                  <% end %>
+				  <% if current_user %>
+            <span style="color:#fff"> Signed in as <%= current_user.name %> |</span> <%= link_to "Logout", '/logout', {:style => 'display:inline-block'} %>
+          <% else %>
+            <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+          <% end %>
 
 				</li>
 

@@ -1,0 +1,18 @@
+<% unless no_sidebar? %>
+  <div class="col-md-4 column">
+    <div class="list-group">
+      <%= render partial: 'layouts/side_bar_list_group' %>  
+    </div>
+						
+    <% @event_types.each do |event_type|%>
+      <% events, events_limit = events_list_limit(event_type) %>
+      <% unless events.blank? %>
+        <a class="list-group-item active"><%= event_type.name %></a>
+        <%= render partial: 'layouts/events_list_limit', object: events_limit %>	
+	    <% if events.size > 2 %>
+	      <%= render partial: 'layouts/events_click_more', object: event_type %>		        
+   	    <% end %>  
+      <% end %>
+    <% end %>
+  </div>					
+<% end %>	

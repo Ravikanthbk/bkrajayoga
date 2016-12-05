@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<div class="well history-content">
+<h3>Photos List	  
+  <p class="pull-right">
+    <%= link_to 'Add New Photo (+)', new_admin_newsletter_path, :class=>"btn btn-default active" %>
+  </p>	  
+</h3>
+<div class="sortable">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody id="admin_newsletters">
+	<% if @admin_newsletters.any? %>  
+	  <%= render @admin_newsletters %>
+	<% else %>
+      <tr><td colspan="4">No records found.</td></tr>	
+    <% end %>  
+  </tbody>
+</table>
+</div>
+</div>
+

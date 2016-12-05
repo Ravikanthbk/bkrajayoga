@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<div class="well history-content">
+<h3>Photos List	  
+  <p class="pull-right">
+    <%= link_to 'Add New Photo (+)', new_admin_mini_carousel_path, :class=>"btn btn-default active" %>
+  </p>	  
+</h3>
+<div class="sortable">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Photo</th>		
+      <th>Title</th>
+      <th>URL attachecd?</th>	  
+      <th>Active</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody id="admin_mini_carousels">
+	<% if @admin_mini_carousels.any? %>  
+	  <%= render @admin_mini_carousels %>
+	<% else %>
+      <tr><td colspan="6">No records found. %></td></tr>	
+    <% end %>  
+  </tbody>
+</table>
+</div>
+</div>
+
+
+<%# content_for :head do -%>
+  <%#= javascript_include_tag 'tablednd.js' %>
+  <script src="/assets/tablednd.js></script>
+  <script type="text/javascript" charset="utf-8">
+    $().ready(function() {
+      $('#admin_mini_carousels').tableDnD({
+        onDrop: function(table, row) {
+          $.ajax({
+             type: "POST",
+             url: "<%= url_for(:action => 'sort') %>",
+             processData: false,
+             data: $.tableDnD.serialize() + '&authenticity_token=' + encodeURIComponent('<%= form_authenticity_token if protect_against_forgery? %>'),
+             success: function(msg) {
+               alert("The admin_mini_carousels have been updated")
+             }
+           });
+        }
+      })
+    })
+  </script>
+<%# end -%>

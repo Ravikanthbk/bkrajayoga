@@ -1,7 +1,9 @@
 <div class="well history-content">
-  <h2 class="well-h2 newsletter-header"> Newsletter 2015 </h2>
+  <h2 class="well-h2 newsletter-header"> Newsletter <%= @newsletter.title %> </h2>
   <div class="flipbook ">
 	<div ignore="1" class="next-button next-button-hover"></div>
+	<%= render partial: 'pictures', collection: @pictures %>
+	<!--
 	<div class="hard first"><%= image_tag("newsletters/2015/1.jpg") %></div>
 	<div class="hard"><%= image_tag("newsletters/2015/1.jpg") %></div>
 	<div class="hard"><%= image_tag("newsletters/2015/2.jpg") %></div>
@@ -16,8 +18,9 @@
 	<div class="hard"><%= image_tag("newsletters/2015/11.jpg") %></div>
 	<div class="hard"><%= image_tag("newsletters/2015/12.jpg") %></div>
 	<div class="hard"><%= image_tag("newsletters/2015/13.jpg") %></div>
-	<div class="hard"><%= image_tag("newsletters/2015/14.jpg") %></div>
+	<div class="hard"><%= image_tag("newsletters/2015/14.jpg") %></div>	
 	<div class="hard last">End of Newsletter</div>
+	-->	
 	<div ignore="1" class="previous-button"></div>
   </div>
 <script type="text/javascript">

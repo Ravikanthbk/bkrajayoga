@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    resources :newsletters do
+      member do
+        get 'image_delete'
+      end  
+    end    
+  end
+  namespace :admin do
+    resources :mini_carousels do
+      put :sort, on: :collection
+    end
+  end
   get 'newsletters/index'
 
   get 'newsletters/show'
@@ -84,6 +96,8 @@ Rails.application.routes.draw do
       member do
         get 'user_list'
         get 'registrations'
+        post 'email_reminder'
+        post 'email_confirmation'
       end
     end
   end

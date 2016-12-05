@@ -7,10 +7,13 @@
   <span class="flt-right download"> <%= link_to "Download", registrations_admin_event_path(@admin_event) %> </span>
   <span class="flt-right">Total Participants: <%= @users.sum(:no_of_places_or_people) %> </span>
   <span class="flt-right">Registered Participants: <%= @users.size %> </span>
+  <input type="button" id="btn" name="btn" value="email reminder" class="flt-right">
 </div>
+<%# form_tag email_reminder_admin_event_path do %>
 <table class="table table-bordered">
   <thead>
     <tr>
+	  <th><%= check_box_tag "send_email_all" %></th>	
       <th>Name</th>
       <th>Email</th>
       <th>Tel /Mobile No</th>
@@ -22,14 +25,17 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="find-body">
     <% @users.each do |user| %>
       <tr>
+		<th><%= check_box_tag "send_email[]", user.email %></th>	  
         <td><%= user.name %></td>
         <td><%= user.email %></td>
         <td><%= user.tel_mobile_no %></td>
-        <td><%= user.no_of_places_or_people %></td>
-        <td><%= truncate(user.comments, :length => 50, :omission => '...') %></td>
+        <td style="width: 150px;"><%= user.no_of_places_or_people %></td>
+        <td style="width: 350px;">
+			<%= user.comments %>
+			<%#= truncate(user.comments, :length => 50, :omission => '...') %></td>
 <!--
         <td><%#= link_to 'Show', admin_event %></td>
         <td><%#= link_to 'Edit', edit_admin_event_path(admin_event) %></td>
@@ -39,5 +45,37 @@
     <% end %>
   </tbody>
 </table>
-
+<%# end %>
+<form id="target" action="/admin/events/email_reminder">
+	<input type="hidden" name="email_list" id="email_list"  value="">
+</form>	
 </div>
+
+<script type="text/javascript">
+$('#send_email_all').change(function(){
+  $("input:checkbox").prop('checked', $(this).prop("checked"));       
+});
+
+(function( $ ){
+      $.fn.valList = function(){
+            return $.map( this, function (elem) {
+                  return elem.value || "";
+            }).join( "," );
+      };
+      $.fn.idList = function(){
+            return $.map( this, function (elem) {
+                  return elem.id || "";
+            }).join( "," );
+      };
+})( jQuery );
+
+$('#btn').click(function(){
+	email_list = $("input:checked").valList();
+    //alert(email_list); 
+	$("#email_list").val(email_list);
+	$( "#target" ).submit();
+   // alert($("input:checked").idList()); 
+
+});
+
+</script>

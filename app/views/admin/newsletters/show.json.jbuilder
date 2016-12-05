@@ -1,0 +1,1 @@
+json.partial! "admin_newsletters/admin_newsletter", admin_newsletter: @admin_newsletter

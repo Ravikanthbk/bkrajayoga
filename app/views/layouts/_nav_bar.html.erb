@@ -1,0 +1,53 @@
+<ul class="nav nav-pills navbar-inverse">
+  <li class="<%= menu_active('home') %>">
+    <%= link_to "Home", home_index_path %>
+  </li>
+  <li class="dropdown <%= menu_active('about_us', 'singapore') %>">
+  <a href="/about_us/index" data-toggle="dropdown" class="dropdown-toggle">About Us<strong class="caret"></strong></a>
+  <ul class="dropdown-menu">
+    <li>
+      <a href="/about_us/singapore">Singapore</a>
+    </li>
+    <li>
+      <a href="http://brahmakumaris.org/" target="_blank">Brahma Kumaris International</a>
+    </li>
+  </ul>
+  </li>
+  <li class="dropdown <%= menu_active('about_us', 'experiences') %>">
+    <a href="/about_us/experiences">Meditation</a>
+  </li>
+  <li class="dropdown <%= menu_active('events') %>">
+    <a href="#" data-toggle="dropdown" class="dropdown-toggle">Events<strong class="caret"></strong></a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="/events/events_calendar">Events Calendar</a>
+      </li>
+      <li>
+        <a href="/events/about_courses">Courses</a>
+      </li>
+      <li>
+        <a href="/events/about_talks_workshops">Talks & Workshops</a>
+      </li>
+      <li>
+        <a href="/events/all">All Activities</a>
+      </li>
+      <li>
+        <a href="/events/local_activities">Local Activities</a>
+      </li>
+    </ul>
+  </li>
+  <li class="<%= menu_active('articles') %>">
+    <a href="/articles">Gallery</a>
+  </li>
+  <li class="<%= menu_active('experiences') %>">
+    <a href="/experiences">Experiences & Sharing</a>
+  </li>
+  <li class="dropdown <%= menu_active('contact_us') %>">
+    <a href="#" data-toggle="dropdown" class="dropdown-toggle">Contact Us<strong class="caret"></strong></a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="/contact_us/local">Local Contact</a>
+      </li>
+    </ul>
+  </li>
+</ul>

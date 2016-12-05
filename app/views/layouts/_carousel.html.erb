@@ -1,0 +1,37 @@
+ <% unless @photos.blank? %>
+        <div class="carousel carousel-fade slide" id="carousel-385695">
+                                <ol class="carousel-indicators">
+                                        <li data-slide-to="0" data-target="#carousel-385695" class="active">
+                                        </li>
+                                        <li data-slide-to="1" data-target="#carousel-385695">
+                                        </li>
+                                        <li data-slide-to="2" data-target="#carousel-385695">
+                                        </li>
+                                </ol>
+                                <div class="carousel-inner">
+                                        <% @photos.each do |photo| %>
+                                          <% if @photos.first.id.eql?(photo.id) %>
+                                                <div class="item active">
+                                          <% else %>
+                                            <div class="item">
+                                          <% end %>
+                                                <%= image_tag(photo.image.url(:large), class: 'media-object')  %>
+                                                        <div class="carousel-caption">
+                                                                <h4>
+                                                                  <%#= photo.title %>
+                                                                </h4>
+                                                                <p style="text-align:center">
+                                                                  <%#= photo.description %>
+                                                                </p>
+                                                        </div>
+                                                </div>
+                                        <% end %>
+                                </div>
+<a class="left carousel-control" href="#carousel-385695" data-slide="prev">
+  <span class="glyphicon glyphicon-chevron-left"></span>
+</a>
+<a class="right carousel-control" href="#carousel-385695" data-slide="next">
+  <span class="glyphicon glyphicon-chevron-right"></span>
+</a>
+                        </div>
+<% end %>

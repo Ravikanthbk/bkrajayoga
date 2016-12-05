@@ -1,0 +1,1 @@
+json.array! @admin_newsletters, partial: 'admin_newsletters/admin_newsletter', as: :admin_newsletter

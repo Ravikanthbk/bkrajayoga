@@ -1,7 +1,7 @@
 .flipbook{
-	width:820px; /* Ravi */
+	width:1200px; /* Ravi */
 /*	height:500px;  Ravi */
-        height: 580px;
+        height: 800px;
     margin: 0 auto !important; /* Ravi */	
 	-webkit-transition:margin-left 0.2s;
 	-moz-transition:margin-left 0.2s;
@@ -73,7 +73,8 @@
 .flipbook .previous-button{
 	width:22px;
 	/*height:500px;*/
-	height:580px;
+	/* height:580px; */
+	height:800px;	
 	position:absolute;
 	top:0;
 }

@@ -1,0 +1,38 @@
+<%= form_for @admin_newsletter, :html => { multipart: true } do |f| %>
+   <%= render partial: 'error_messages', object: @admin_newsletter %>
+
+      <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">	  
+		<%= f.label :image %> (Please upload image size with Width: 
+		<strong>600px</strong> and Height: <strong>800px</strong>)  
+	    <%= file_field_tag "images[]", type: :file, multiple: true %>
+	  </div>	
+
+      <div class="form-group">	  
+        <%= f.submit 'Submit', class: 'btn btn-primary' %>
+        <%= link_to 'Cancel', admin_newsletters_path, class: 'btn btn-primary' %>
+	  </div>	
+	    	  
+<% end %>
+
+      <div class="newsletter-thumb-images">        
+		  <% @admin_newsletter.admin_pictures.each do |picture| %>
+		    <div class="form-group" style="height: 70px; width:70px; display:inline-block;">
+		      <%= image_tag(picture.image.url(:small)) %> 
+			   <p style="text-align:center"> 
+				   <%#= link_to_remote "(x)", :update => "newsletter-thumb-images", 
+				     :url => { :action => "delete_image", :id => @admin_newsletter.id },
+					 :with =>"picture_id=#{picture.id}"
+					  %>
+				   <%= link_to '(X)', 
+				   image_delete_admin_newsletter_path({picture_id: picture.id, 
+					   newsletter_id: @admin_newsletter.id}) %>
+			   </p>
+			</div> 			
+		  <% end %>
+      </div> 
+

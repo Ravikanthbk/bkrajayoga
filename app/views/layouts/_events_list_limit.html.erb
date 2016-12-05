@@ -1,0 +1,18 @@
+        <% events_list_limit.each do |event|%>
+	      <div class="list-group-item">
+            <p>
+			  <strong>
+              <%= link_to truncate(event.name, :length => 40, :omission => '...'),  				events_events_calendar_event_path({event_id: event.id}) %>
+              </strong>
+		    </p>
+	        <p>
+		      <strong>
+			    Start Date / Time :
+		      </strong> 
+			  <%= event.date_from.strftime("%d/%m/%Y") %> <%= event.date_from.strftime("%I:%M %p") %>
+		    </p>  
+			<p>
+			  <strong>End Date / Time &nbsp;&nbsp;:</strong> 
+			  <%= event.date_to.strftime("%d/%m/%Y") %> <%= event.date_to.strftime("%I:%M %p") %></p>
+		  </div>
+       <% end %>

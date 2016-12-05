@@ -1,10 +1,5 @@
 <div class="well history-content">
   <h2 class="well-h2 newsletter-header"> Newsletters </h2>
-  <div class="calfirst calfirst-newsletter">
-    <span class="number year-newsletter"><%= link_to "2015", newsletters_show_path %></span>
-  </div>
-  <div class="calfirst calfirst-newsletter">
-    <span class="number year-newsletter"><%= link_to "2016", newsletters_show_2016_path %></span>
-  </div>
+  <%= render partial: 'newsletter', collection: @newsletters %>
 </div>
 

@@ -1,0 +1,11 @@
+      <tr class="panel panel-default" id="spec-<%= mini_carousel.id %>">
+      	<td>
+   	   	  <%= link_to image_tag(mini_carousel.image.url(:small), class: 'media-object'), mini_carousel.image.url, target: '_blank' %>
+  		</td>		  
+        <td><%= mini_carousel.title %></td>
+        <td><%= mini_carousel.is_url ? "Yes" : "No" %></td>		
+        <td><%= mini_carousel.active ? "Yes" : "No" %></td>
+        <td><%= link_to 'Show', mini_carousel %></td>
+        <td><%= link_to 'Edit', edit_admin_mini_carousel_path(mini_carousel) %></td>
+        <td><%= link_to 'Delete', mini_carousel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>

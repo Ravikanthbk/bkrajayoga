@@ -1,0 +1,6 @@
+<div class="list-group-item more-events">
+  <% begin %>
+    <%= link_to "Click here for more #{ events_click_more.name.downcase}...", send("events_#{event_type_name(events_click_more.name)}_path") %>
+  <% rescue %>
+  <% end %>
+</div>

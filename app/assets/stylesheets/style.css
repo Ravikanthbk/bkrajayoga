@@ -223,7 +223,7 @@ background-color: #fff;
 .admin .navbar-inverse {
 background-color: #222;
 border-color: #080808;
-padding-left: 90px;
+padding-left: 0;
 }
 .admin > .sg-body { margin:0; padding:100px 0 0 0; }
 .admin .bk-header-sg img { padding: 0; }
@@ -401,4 +401,5 @@ a.call-email-font-black { color: #333 }
 .flt-right { font-size: 14px; float: right; margin: 0 1%; background-color: blue; padding: 0.5%; color: #fff; }
 .download { background-color: #ccc; }
 .download a { color: #fff; }
-
+.admin_mini_carousel { display: none; }
+.carousel2 { position: relative; }

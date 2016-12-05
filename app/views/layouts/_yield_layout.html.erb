@@ -1,0 +1,7 @@
+<% if (['events', 'contact_us'].include?(controller.controller_name) && ['events_calendar', 'local'].include?(controller.action_name)) %>
+  <div class="col-md-12 column">
+<% else %>
+  <div class="col-md-8 column">
+<% end %>
+    <%= yield %>								
+  </div>

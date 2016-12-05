@@ -1,17 +1,10 @@
 <div class="well">
-<!--
-					<h2 class="well-h2">
-						Introduction to Rajayoga
-					</h2>
--->
   <p class="open-eye-meditation">Ever meditated with your eyes open?</p>
   <p class="raja-yoga-p"><span class="raja-yoga-span">Raja Yoga</span> is a unique method of meditation that you can do anywhere – especially when you most need to be at peace. Learn to be an oasis of calm & stability in the midst of chaos and uncertainty. It is easier than you think…it is about returning to your natural state of self awareness, your natural state of being positive.
   </p>
   <div class="border-image">&nbsp;&nbsp;&nbsp;</div>
   <div class="up-coming-events">
-  <!--  <h3 class="up-coming-events-header">Upcoming Events</h3> -->
-      <%#= link_to image_tag("events/other-events/Stress.jpg", alt: "Dear Stress, Lets break up!"), new_user_registration_path(register: 31) %>
-      <%= image_tag("home/Diwali-greetings.jpg", alt: "Deepavali") %>
+	<%= render partial: 'slider', object: @mini_carousels, as: 'mini_carousels' %> 
   </div>
 </div>
 

@@ -3,7 +3,7 @@ class Admin::EventsController < ApplicationController
   before_filter :authorize  
   layout "admin"
 
-  before_action :set_admin_event, only: [:show, :edit, :update, :destroy, :user_list, :registrations]
+  before_action :set_admin_event, only: [:show, :edit, :update, :destroy, :user_list, :registrations, :email_reminder, :email_confirmation]
 
   # GET /admin/events
   # GET /admin/events.json
@@ -74,6 +74,14 @@ class Admin::EventsController < ApplicationController
     @users = UserRegistration.where(:admin_event_id => params["id"])
     render xlsx: "registrations", template: "admin/events/registrations.xlsx"
   end
+  
+  def email_reminder
+    raise params.inspect
+  end
+  
+  def email_confirmation
+    
+  end      
 
   private
     # Use callbacks to share common setup or constraints between actions.

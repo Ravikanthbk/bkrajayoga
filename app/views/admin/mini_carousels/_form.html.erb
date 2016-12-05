@@ -1,0 +1,42 @@
+  <%= form_for @admin_mini_carousel do |f| %>
+      <%= render partial: 'error_messages', object: @admin_mini_carousel %>
+
+      <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: 'form-control' %>
+      </div>
+	  
+      <div class="form-group">
+        <%= f.label :image %> (Please upload image size with Width: <strong>580px</strong> and Height: <strong>300px</strong>)
+		<%# raise @admin_mini_carousel.image.inspect %>
+		<% unless @admin_mini_carousel.image_file_name.nil? %>
+  	  	  <%= image_tag(@admin_mini_carousel.image.url(:small), class: 'media-object') %><br/>
+		<% end %>		
+        <%= f.file_field :image, class: 'form-control'%>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :is_url, "Link image to URL ?" %>
+        <%= f.check_box :is_url %>
+      </div>
+
+      <div class="form-group url">
+        <%= f.label :url %>
+        <%= f.text_field :url, class: 'form-control'%>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, class: 'form-control' %>
+      </div>
+	  
+      <div class="form-group">
+        <%= f.label :active, "Please tick to make it active:" %>
+        <%= f.check_box :active %>
+      </div>	  
+
+
+      <%= f.submit 'Submit', class: 'btn btn-primary' %>
+      <%= link_to 'Canel', admin_mini_carousels_path, class: 'btn btn-primary' %>
+  <% end %>
+

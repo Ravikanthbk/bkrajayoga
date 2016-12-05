@@ -25,7 +25,10 @@
         <td><%= truncate(admin_event.name, :length => 50, :omission => '...') %></td>
         <td><%= admin_event.admin_event_type.name %></td>
         <td><%= link_to admin_event.user_registrations.size, user_list_admin_event_path(admin_event) %></td>
-        <td><%= link_to admin_event.user_registrations.sum(:no_of_places_or_people), user_list_admin_event_path(admin_event) %></td>
+        <td>
+		  <%= admin_event.user_registrations.sum(:no_of_places_or_people) %>	
+			<%#= link_to admin_event.user_registrations.sum(:no_of_places_or_people), user_list_admin_event_path(admin_event) %>
+		</td>
         <td><%= admin_event.date_from.strftime("%d/%m/%Y %I:%M %p") %></td>
         <td><%= admin_event.date_to.strftime("%d/%m/%Y %I:%M %p") %></td>
         <td><%= link_to 'Show', admin_event %></td>

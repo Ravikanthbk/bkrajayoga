@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    #@photos = Admin::Photo.order('created_at').limit(3)
+    @mini_carousels = Admin::MiniCarousel.where(active: true)
   end
 end

@@ -1,0 +1,1 @@
+json.array! @admin_mini_carousels, partial: 'admin_mini_carousels/admin_mini_carousel', as: :admin_mini_carousel
