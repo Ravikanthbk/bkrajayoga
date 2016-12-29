@@ -96,8 +96,7 @@ Rails.application.routes.draw do
       member do
         get 'user_list'
         get 'registrations'
-        post 'email_reminder'
-        post 'email_confirmation'
+        get 'email_reminder'
       end
     end
   end

@@ -3,7 +3,7 @@ class Admin::EventsController < ApplicationController
   before_filter :authorize  
   layout "admin"
 
-  before_action :set_admin_event, only: [:show, :edit, :update, :destroy, :user_list, :registrations, :email_reminder, :email_confirmation]
+  before_action :set_admin_event, only: [:show, :edit, :update, :destroy, :user_list, :registrations, :email_reminder]
 
   # GET /admin/events
   # GET /admin/events.json
@@ -30,7 +30,6 @@ class Admin::EventsController < ApplicationController
   # POST /admin/events.json
   def create
     @admin_event = Admin::Event.new(admin_event_params)
-
     respond_to do |format|
       if @admin_event.save
         format.html { redirect_to @admin_event, notice: 'Event was successfully created.' }
@@ -76,13 +75,16 @@ class Admin::EventsController < ApplicationController
   end
   
   def email_reminder
-    raise params.inspect
+    UserMailer.reminder_email(@admin_event, params["send_email"]).deliver_later unless params["send_email"].blank?
+    respond_to do |format|
+      unless params["send_email"].blank?
+        format.html { redirect_to user_list_admin_event_url(@admin_event), notice: 'Email Reminder sent successfully!' }
+      else
+        format.html { redirect_to user_list_admin_event_url(@admin_event), notice: 'Email Reminder not sent successfully!' }
+      end
+    end      
   end
   
-  def email_confirmation
-    
-  end      
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_event

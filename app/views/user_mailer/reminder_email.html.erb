@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>Hi</p>
+    <p>
+      This is a gentle reminder for the <%= @event.name %> you have registered with Brahma Kumaris Singapore.  
+    </p>
+    <p>          
+      Kindly be seated 10 minutes before the talk/event starts. 
+    </p>
+    
+    <p>
+      Details:<br/>
+      <p>
+        Date: <strong>
+          <%= @event.date_from.strftime("%d %b %y (%A)") %>
+        </strong>
+      </p>
+      <p>  
+        Time: <strong>
+          <%= @event.date_from.strftime("%I%p") %> - <%= @event.date_to.strftime("%I%p") %>
+        </strong>        
+      </p>  
+      <p>
+        Venue:<br/>
+        <%= @event.admin_venue.address %>
+      </p>        
+    </p>
+    
+    <br/>
+
+    <p>
+       Please do not reply to this email.
+    </p>
+   
+    <p>     
+      ----------------------------------------------------------
+      <br/>
+      Serena BK
+      <br/>
+      bkevents.sg@gmail.com
+    </p>
+  </body>
+</html>

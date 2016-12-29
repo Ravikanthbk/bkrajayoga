@@ -369,7 +369,7 @@ a.call-email-font-black { color: #333 }
     border-bottom-color: #000;
 }
 .calfirst-newsletter { float: none; }
-.year-newsletter { font-size: 2em; padding-top: 25%; }
+.year-newsletter { font-size: 2em; padding-top: 0, line-height: 1.0; }
 .newsletter-header { color: #707070; }
 .nav-pills.navbar-inverse-black>li.active>a, .nav-pills.navbar-inverse-black>li.active>a:hover, .nav-pills.navbar-inverse-black>li.active>a:focus {
     color: #428bca;

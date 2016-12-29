@@ -1,15 +1,17 @@
 <div class="well history-content">
-<p id="notice"><%= notice %></p>
 <h3>
   Registered users for the event: <%= @admin_event.name %>
 </h3>
+<%= form_tag email_reminder_admin_event_path(@admin_event), method: :get do %>  
 <div class="clearfix download-div">
   <span class="flt-right download"> <%= link_to "Download", registrations_admin_event_path(@admin_event) %> </span>
   <span class="flt-right">Total Participants: <%= @users.sum(:no_of_places_or_people) %> </span>
   <span class="flt-right">Registered Participants: <%= @users.size %> </span>
+
   <input type="button" id="btn" name="btn" value="email reminder" class="flt-right">
+  
 </div>
-<%# form_tag email_reminder_admin_event_path do %>
+<p id="notice"><%= notice %></p>
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -19,9 +21,6 @@
       <th>Tel /Mobile No</th>
       <th>Number of people</th>
       <th colspan="2">Comments</th>
-<!--
-      <th colspan="3"></th>
--->
     </tr>
   </thead>
 
@@ -34,21 +33,12 @@
         <td><%= user.tel_mobile_no %></td>
         <td style="width: 150px;"><%= user.no_of_places_or_people %></td>
         <td style="width: 350px;">
-			<%= user.comments %>
-			<%#= truncate(user.comments, :length => 50, :omission => '...') %></td>
-<!--
-        <td><%#= link_to 'Show', admin_event %></td>
-        <td><%#= link_to 'Edit', edit_admin_event_path(admin_event) %></td>
-        <td><%#= link_to 'Delete', admin_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
--->
+			  <%= user.comments %>
       </tr>
     <% end %>
   </tbody>
 </table>
-<%# end %>
-<form id="target" action="/admin/events/email_reminder">
-	<input type="hidden" name="email_list" id="email_list"  value="">
-</form>	
+<% end %>
 </div>
 
 <script type="text/javascript">
@@ -69,13 +59,13 @@ $('#send_email_all').change(function(){
       };
 })( jQuery );
 
-$('#btn').click(function(){
-	email_list = $("input:checked").valList();
-    //alert(email_list); 
-	$("#email_list").val(email_list);
-	$( "#target" ).submit();
-   // alert($("input:checked").idList()); 
 
-});
+ $('#btn').click(function(){
+    if ($("input").is(':checked')){
+	    $( "form" ).submit();
+    }else{
+      alert("Please select atleast one checkbox!");
+    }  
+  });
 
 </script>

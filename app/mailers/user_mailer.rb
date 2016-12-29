@@ -8,4 +8,9 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, bcc: ["bkevents.sg@gmail.com"],
          subject: "Receipt: #{@user.admin_event.name} on #{@user.admin_event.date_from.strftime("%b %d, %Y at %I:%M%p")}")    
   end
+
+  def reminder_email(event, send_email)
+  	@event = event
+    mail(bcc: send_email, subject: "Reminder - #{event.name}")    
+  end  
 end

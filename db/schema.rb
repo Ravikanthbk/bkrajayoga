@@ -75,9 +75,7 @@ ActiveRecord::Schema.define(version: 20161129163608) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.integer  "admin_newletter_id"
     t.integer  "admin_newsletter_id"
-    t.index ["admin_newletter_id"], name: "index_admin_pictures_on_admin_newletter_id", using: :btree
   end
 
   create_table "admin_venues", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
