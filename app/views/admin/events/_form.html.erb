@@ -19,6 +19,10 @@
     <%= f.collection_select :admin_event_type_id, Admin::EventType.all, :id, :name, {prompt: "Select an event"} %>
   </div>
   <div class="form-group">
+    <%= f.label :language %>:
+    <%= f.select :language, Admin::Event::LANGUAGE, {prompt: "Select language"} %>
+  </div>  
+  <div class="form-group">
     <p><%= f.label :description %></p>
     <%= f.cktext_area :descript %>
   </div>

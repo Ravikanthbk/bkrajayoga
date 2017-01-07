@@ -15,22 +15,23 @@
 //= require jquery_ujs
 //= require_tree .
 //= require ckeditor/init
-
 //= require moment
+//= require fullcalendar
 //= require bootstrap-datetimepicker
 //= require pickers
 
 $(document).ready(function() {
+  
   $('.carousel').carousel({
     interval: 10000
   })
   
   $("#owl-example").owlCarousel({
-	autoPlay : 5000,
+	autoPlay : 6000,
     stopOnHover : true,
     navigation:true,
-    paginationSpeed : 5000,
-    goToFirstSpeed : 5000,
+    paginationSpeed : 6000,
+    goToFirstSpeed : 6000,
     singleItem : true,
     autoHeight : true,
     transitionStyle:"goDown"

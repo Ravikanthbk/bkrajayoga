@@ -4,6 +4,7 @@ class Admin::EventsController < ApplicationController
   layout "admin"
 
   before_action :set_admin_event, only: [:show, :edit, :update, :destroy, :user_list, :registrations, :email_reminder]
+  before_action :set_color_code, only: [:create, :update]
 
   # GET /admin/events
   # GET /admin/events.json
@@ -93,6 +94,14 @@ class Admin::EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_event_params
-      params.require(:admin_event).permit(:date_from, :date_to, :descript, :filename, :ticker, :name, :admin_event_type_id, :admin_venue_id, :registration)
+      params.require(:admin_event).permit(:date_from, :date_to, :descript, :filename, :ticker, :name, :admin_event_type_id, :admin_venue_id, :registration, :language, :color_code)
     end
+
+    def set_color_code
+      colors = {'English' => 'blue', 'Mandarin' => 'maroon', 'Tamil' => '#000000', 
+        'Telugu' => '#308014', 'Hindi' => '#ED9121'}
+      params["admin_event"].merge!({"color_code" => colors[params["admin_event"]["language"]]})
+    end  
+
+
 end

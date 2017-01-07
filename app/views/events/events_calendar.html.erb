@@ -1,17 +1,23 @@
 <div class="well history-content calendar-margin">
-<%= month_calendar attribute: :date_from, events: @events do |date, meetings| %>
-  <%= date.strftime("%-d") %>
-
-  <% meetings.each do |meeting| %>
-    <div class="mytooltip user" >
-      <%if meeting.date_from >= DateTime.now.to_date %>
-        <%= link_to truncate(meeting.name, :length => 25, :omission => '...'), events_events_calendar_event_path({event_id: meeting.id}) %>
-      <%else%>
-        <%= truncate(meeting.name, :length => 25, :omission => '...') %>
-      <%end%>
-    </div>
-    <div class='popup'><%= meeting.name %></div>
-  <% end %>
-<% end %>
-<span><i><sup>*</sup> Only for BK Rajayoga students</i></span>
+  <div id="calendar"></div>
+  <span><i><sup>*</sup> Only for BK Rajayoga students</i></span>
 </div>
+<script type="text/javascript">
+var data = JSON.stringify('<%= display_events_list(@events) %>')
+data = $.parseJSON(data)
+data = $.parseHTML(data)[0]
+$('#calendar').fullCalendar({
+    header: {
+      left: 'prev,next today myCustomButton',
+      center: 'title',
+      right: 'month,agendaWeek,agendaDay'
+    },
+      defaultView: 'month',
+      editable: false,
+      eventLimit: true,
+      timeFormat: 'hh:mm a',
+      //selectable: true,
+      //selectHelper: true,
+      events:  JSON.parse(data.data) 
+  })    
+</script>

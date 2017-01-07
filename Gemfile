@@ -43,16 +43,17 @@ gem 'paperclip'
 
 #gem 'calendar_date_select'
 #gem 'calendar_date_select', :git => 'git://github.com/paneq/calendar_date_select.git'
+gem 'fullcalendar-rails'
 gem 'momentjs-rails' #, '~> 2.9',  :github => 'derekprior/momentjs-rails'
 gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
 gem 'simple_form'
 gem 'country_select', github: 'stefanpenner/country_select'
 gem "figaro"
-#gem 'fullcalendar-rails'
 gem "simple_calendar", "~> 2.0"
 gem "jw_player_helper"
 gem 'axlsx', '~> 2.0'
 gem "axlsx_rails"
+gem "ice_cube"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,4 +1,6 @@
 class Admin::Event < ActiveRecord::Base
+  LANGUAGE = ['English', 'Mandarin', 'Tamil', 'Telugu', 'Hindi'].freeze
+  #COLOURS = {'English': 'blue', 'Mandarin': 'maroon', 'Tamil': '#000000', 'Telugu': '#308014' , 'Hindi' : '#ED9121'}
   belongs_to :admin_event_type, :class_name=>"Admin::EventType" #, :foreign_key => "admin_event_type_id"
   belongs_to :admin_venue, :class_name=>"Admin::Venue"
   #has_many :user_registrations, :dependent => :destroy  #, :class_name=>"UserRegistration"
@@ -10,5 +12,6 @@ class Admin::Event < ActiveRecord::Base
   validates :admin_event_type, presence: true
   validates :date_from, presence: true
   validates :date_to, presence: true
+  validates :language, presence: true
   validates :admin_venue, presence: true
 end

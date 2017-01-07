@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
   def events_calendar
-    @events = Admin::Event.all  
+    @events = Admin::Event.where("date_to >= ? ", (Time.zone.now).beginning_of_month)    
   end
 
   def all

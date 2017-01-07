@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161129163608) do
+ActiveRecord::Schema.define(version: 20170101220152) do
 
   create_table "admin_event_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string   "name"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 20161129163608) do
     t.string   "name"
     t.integer  "admin_venue_id"
     t.boolean  "registration"
+    t.string   "language"
+    t.string   "color_code"
     t.index ["admin_event_type_id"], name: "index_admin_events_on_admin_event_type_id", using: :btree
     t.index ["admin_venue_id"], name: "index_admin_events_on_admin_venue_id", using: :btree
   end

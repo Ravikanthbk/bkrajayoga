@@ -1,4 +1,4 @@
-class CreateAdminMiniCarousels < ActiveRecord::Migration[5.0]
+class CreateAdminMiniCarousels < ActiveRecord::Migration
   def change
     create_table :admin_mini_carousels do |t|
       t.string :title
