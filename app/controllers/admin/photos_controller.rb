@@ -1,25 +1,42 @@
 class Admin::PhotosController < ApplicationController
   before_filter :authorize
   layout "admin"
-  before_action :set_admin_photo, only: [:destroy]
+  before_action :set_admin_photo, only: [:show, :edit, :update, :destroy]
 
   def index
-    @photos = Admin::Photo.order('created_at')
+    @photos = Admin::Photo.all #order('created_at')
   end
+
+  def show
+  end  
 
   def new
-    @photo = Admin::Photo.new
+    @admin_photo = Admin::Photo.new
   end
 
+   # GET /admin/mini_carousels/1/edit
+  def edit
+  end 
+
   def create
-    @photo = Admin::Photo.new(photo_params)
-    if @photo.save
+    @admin_photo = Admin::Photo.new(photo_params)
+    if @admin_photo.save
       flash[:success] = "The photo was added!"
       redirect_to admin_photos_url
     else
       render 'new'
     end
   end
+
+ def update
+    respond_to do |format|
+      if @admin_photo.update(photo_params)
+        format.html { redirect_to @admin_photo, notice: 'Photo was successfully updated.' }
+      else
+        format.html { render :edit }
+      end
+    end
+  end 
 
   def destroy
     @admin_photo.destroy
@@ -39,7 +56,7 @@ class Admin::PhotosController < ApplicationController
   end
 
   def photo_params
-    params.require(:admin_photo).permit(:image, :title, :description)
+    params.require(:admin_photo).permit(:title, :image, :is_url, :url, :description, :active)
   end
 
 end

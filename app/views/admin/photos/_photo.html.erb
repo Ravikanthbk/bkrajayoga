@@ -1,8 +1,11 @@
-<tr>
-  <td>
-   <%= link_to image_tag(photo.image.url(:small), class: 'media-object'), photo.image.url, target: '_blank' %>
-  </td>
-  <td><%= photo.title %></td>
-  <td><%= photo.description %></td>
-  <td><%= link_to 'Delete', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-</tr>
+<tr class="panel panel-default" id="spec-<%= photo.id %>">
+	<td>
+   	  <%= link_to image_tag(photo.image.url(:small), class: 'media-object'), photo.image.url, target: '_blank' %>
+	</td>		  
+	<td><%= photo.title %></td>
+	<td><%= photo.is_url ? "Yes" : "No" %></td>		
+	<td><%= photo.active ? "Yes" : "No" %></td>
+	<td><%= link_to 'Show', photo %></td>
+	<td><%= link_to 'Edit', edit_admin_photo_path(photo) %></td>
+	<td><%= link_to 'Delete', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>	

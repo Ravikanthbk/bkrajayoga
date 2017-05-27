@@ -19,11 +19,12 @@
 	  <div class="col-md-12 column sg-header">
         <div class="banner-header-nav">
           <%= render partial: 'layouts/contact_us_header' %>                    
-		  <%= render partial: 'layouts/nav_bar' %>                          
+		      <%= render partial: 'layouts/nav_bar' %>                          
         </div>
       </div>
      <div class="col-md-12 column sg-body">
-	   <%= render partial: 'layouts/carousel', object: @photos %>	  
+	   <%#= render partial: 'layouts/carousel', object: @photos %>	  
+     <%= render partial: 'layouts/carousel', object: @photos, as: 'mini_carousels' %> 
 	   <div class="row clearfix content-top">
 	     <%= render partial: 'layouts/yield_layout' %>  	   
 		 <%= render partial: 'layouts/side_bar', object: @event_types %>	  

@@ -1,0 +1,34 @@
+<div class="well history-content show-carousel">
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Title:</strong>
+  <%= @admin_photo.title %>
+</p>
+
+<% if @admin_photo.is_url %>
+<p>
+  <strong>URL to link image:</strong>
+  <%= @admin_photo.url %>
+</p>
+<% end %>
+
+<p>
+  <strong>Description:</strong>
+  <%= @admin_photo.description %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @admin_photo.active ? "Yes" : "No" %>
+</p>
+
+<div class="clearfix" style="margin-bottom:1%">
+<p>
+  <%= image_tag(@admin_photo.image.url(:large))  %>
+</p>
+</div>
+
+<%= link_to 'Edit', edit_admin_photo_path(@admin_photo) %> |
+<%= link_to 'Back', admin_photos_path %>
+
+</div>

@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :sidebar_events, :photo_carousel
 
   def photo_carousel
-    @photos = Admin::Photo.order('created_at').limit(3)
+    @photos = Admin::Photo.where(active: true)
   end
 
   def sidebar_events

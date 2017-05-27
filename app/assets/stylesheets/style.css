@@ -403,3 +403,6 @@ a.call-email-font-black { color: #333 }
 .download a { color: #fff; }
 .admin_mini_carousel { display: none; }
 .carousel2 { position: relative; }
+.show-carousel { padding-left: 0; }
+.history-content.show-carousel img { margin-left: 0; }
+#main-carousel .owl-item img {width: 100%; height: 500px}

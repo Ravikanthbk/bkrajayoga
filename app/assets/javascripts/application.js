@@ -22,9 +22,22 @@
 
 $(document).ready(function() {
   
-  $('.carousel').carousel({
-    interval: 10000
-  })
+  //$('.carousel').carousel({
+  //  interval: 10000
+  //})
+
+  $("#main-carousel").owlCarousel({
+    autoWidth: true,
+    touchDrag: true,
+    mouseDrag: true,
+    autoPlay : true,
+    animateOut: 'fadeIn',
+    animateIn: 'fadeOut',
+    items:1,
+    margin:30,
+    stagePadding:30,
+    smartSpeed:450  
+  });  
   
   $("#owl-example").owlCarousel({
 	autoPlay : 6000,

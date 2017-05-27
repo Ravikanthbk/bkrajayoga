@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170101220152) do
+ActiveRecord::Schema.define(version: 20170527143921) do
 
   create_table "admin_event_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string   "name"
@@ -67,6 +67,10 @@ ActiveRecord::Schema.define(version: 20170101220152) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.boolean  "is_url"
+    t.string   "url"
+    t.integer  "priority"
+    t.boolean  "active"
   end
 
   create_table "admin_pictures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
